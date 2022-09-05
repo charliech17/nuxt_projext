@@ -2,11 +2,13 @@
     <div 
         :class="{'img_section':isShowImg}"
     >
-        <img 
-            src="https://source.unsplash.com/random/1600x900"
-            :class="{'fullScreenImg':isShowImg}"
-            @click="isShowImg = !isShowImg"
-        >
+        <div style="width:100vW;background-color:black;display:flex; justify-content: center;align-items: center;">
+            <img 
+                src="https://source.unsplash.com/random/1600x900"
+                :class="{'fullScreenImg':isShowImg}"
+                @click="isShowImg = !isShowImg"
+            >
+        </div>
     </div>
 </template>
 
