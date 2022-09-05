@@ -1,5 +1,8 @@
 <template>
-  <Tutorial/>
+  <div>
+      <Tutorial/>
+      <FullScreenView/>
+  </div>
 </template>
 
 <script>
