@@ -1,20 +1,20 @@
 <template>
     <div 
+        :class="{'img_section':isShowImg}"
     >
-        <!-- :class="{'img_section':isShowImg}" -->
-        <!-- <div style="width:100vW;background-color:black;display:flex; justify-content: center;align-items: center;">
+        <div style="width:100vW;background-color:black;display:flex; justify-content: center;align-items: center;">
             <img 
                 src="https://source.unsplash.com/random/1600x900"
                 :class="{'fullScreenImg':isShowImg}"
                 @click="isShowImg = !isShowImg"
             >
-        </div> -->
-        <div>
+        </div>
+        <!-- <div>
             <img 
                 src="https://source.unsplash.com/random/1600x900"
                 @click="toggleFullScreen($event)"
             >
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -67,10 +67,11 @@ export default {
     }
 
     .fullScreenImg{
-        object-fit:contain ;
+        object-fit:cover;
+        transform: rotate(90deg) scale(2);
         width: 100vw;
-        height: auto;
-        overflow: hidden;
+            /* height: 100vh; */
+        /* overflow: hidden; */
         justify-content: center;
         align-items: center;
     }
