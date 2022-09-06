@@ -1,6 +1,6 @@
 <template>
   <div>
-      <Tutorial/>
+      <h1>測試功能</h1>
       <FullScreenView/>
   </div>
 </template>
