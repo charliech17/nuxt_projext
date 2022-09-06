@@ -74,4 +74,15 @@ export default {
         justify-content: center;
         align-items: center;
     }
+
+    @media (orientation:landscape) {
+        .fullScreenImg{
+            object-fit:contain;
+            height: 100vh;
+            /* height: 100vh; */
+            /* overflow: hidden; */
+            justify-content: center;
+            align-items: center;
+        }
+    }
 </style>
