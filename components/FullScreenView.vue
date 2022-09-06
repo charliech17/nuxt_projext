@@ -67,8 +67,7 @@ export default {
     }
 
     .fullScreenImg{
-        object-fit:cover;
-        transform: rotate(90deg) scale(2);
+        object-fit:contain;
         width: 100vw;
             /* height: 100vh; */
         /* overflow: hidden; */
