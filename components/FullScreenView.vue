@@ -204,8 +204,8 @@ export default {
 
     @media (orientation:landscape) {
         .fullScreenImg{
-            object-fit:contain;
-            transform: scale(0.8);
+            object-fit:none;
+            /* transform: scale(1); */
         }
     }
 </style>
