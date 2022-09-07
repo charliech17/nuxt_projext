@@ -188,7 +188,7 @@ export default {
     @media (orientation:landscape) {
         .fullScreenImg{
             object-fit:contain;
-            height: 100vh;
+            /* height: 100vh; */
             transform: scale(0.8);
             /* height: 100vh; */
             /* overflow: hidden; */
