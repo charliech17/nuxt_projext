@@ -33,6 +33,23 @@
 
 <script>
 import html2canvas from 'html2canvas';
+
+
+function setViewHeightViewWidth() {
+  let windowsVH = window.innerHeight / 100;
+  let windowsVW = window.innerWidth / 100;
+  document.documentElement.style.setProperty('--vh', windowsVH + 'px');
+  document.documentElement.style.setProperty('--vw', windowsVW + 'px');
+
+  console.log('resize',windowsVH,windowsVW)
+}
+
+window.addEventListener('resize', function() {
+    setViewHeightViewWidth()
+});
+
+setViewHeightViewWidth()
+
 export default {
     data() {
         return {
@@ -114,16 +131,6 @@ export default {
         clickImageBackground(event) {
             if(event.target.id === 'openOtion') return
             this.isShowMenu = false
-        },
-        safariHacks() {
-          let windowsVH = window.innerHeight / 100;
-          let windowsVW = window.innerWidth / 100;
-          document.documentElement.style.setProperty('--vh', windowsVH + 'px');
-          document.documentElement.style.setProperty('--vw', windowsVW + 'px');
-          window.addEventListener('resize', function() {
-              document.documentElement.style.setProperty('--vh', windowsVH + 'px');
-              document.documentElement.style.setProperty('--vw', windowsVW + 'px');
-          });
         },
         // *** 目前無用到的function ***//
         dataURItoBlob(dataURI) {
