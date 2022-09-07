@@ -5,7 +5,7 @@
             @click="clickImageBackground($event)"
             :class="{'img_section':isShowImg}"
         >
-            <div style="display:flex;justify-content: center;align-items: center;position:relative;">
+            <div style="display:flex;justify-content: center;align-items: center;">
                 <!-- style="width:100vW;background-color:black;display:flex; justify-content: center;align-items: center;"  -->
                 <img 
                     src="@/assets/image/vue.png"
@@ -14,8 +14,8 @@
                     style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2)"
                     @click="isShowImg = true"
                 >
-                <div style="position:fixed;left:16px;top:16px;color:white;" @click="isShowImg = false">X</div>
-                <div style="z-index:2;position:fixed;right:16px;top:16px;transform:rotate(90deg) scale(1.5);color:white;" id="openOtion" @click="isShowMenu=!isShowMenu">...</div>
+                <div style="position:fixed;left:16px;top:16px;color:white;" @click="isShowImg = false" v-if="isShowImg">X</div>
+                <div style="z-index:2;position:fixed;right:16px;top:16px;transform:rotate(90deg) scale(1.5);color:white;" id="openOtion" @click="isShowMenu=!isShowMenu" v-if="isShowImg">...</div>
                 <div style="position:fixed;right:40px;top:32px;padding:8px;width:60px;background-color:white;box-shadow:0 0 3px 5px rgba(0,0,0,0.2);" v-if="isShowMenu">
                     <div style="text-align:center;margin:0 -8px 8px -8px;" @click="shareContent">分享</div>
                     <div style="text-align:center" @click="downloadImage">下載</div>
@@ -115,6 +115,16 @@ export default {
             if(event.target.id === 'openOtion') return
             this.isShowMenu = false
         },
+        safariHacks() {
+          let windowsVH = window.innerHeight / 100;
+          let windowsVW = window.innerWidth / 100;
+          document.documentElement.style.setProperty('--vh', windowsVH + 'px');
+          document.documentElement.style.setProperty('--vw', windowsVW + 'px');
+          window.addEventListener('resize', function() {
+              document.documentElement.style.setProperty('--vh', windowsVH + 'px');
+              document.documentElement.style.setProperty('--vw', windowsVW + 'px');
+          });
+        },
         // *** 目前無用到的function ***//
         dataURItoBlob(dataURI) {
             // convert base64/URLEncoded data component to raw binary data held in a string
@@ -170,8 +180,8 @@ export default {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
-        height: 100vh;
+        width: calc(var(--vw,1vw)*100);
+        height: calc(var(--vh,1vh)*100);
         background-color: black;
     }
 
@@ -190,7 +200,8 @@ export default {
             object-fit:contain;
             /* height: 100vh; */
             transform: scale(0.8);
-            /* height: 100vh; */
+            width: calc(var(--vw,1vw)*100);
+            height: calc(var(--vh,1vh)*100);
             /* overflow: hidden; */
             justify-content: center;
             align-items: center;
