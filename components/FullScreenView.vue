@@ -106,7 +106,7 @@ export default {
 
             const link = document.createElement('a')
             link.href = imageURL
-            link.download = 'image file name here'
+            link.download = '下載的檔案'
             document.body.appendChild(link)
             link.click()
             document.body.removeChild(link)
@@ -198,13 +198,7 @@ export default {
     @media (orientation:landscape) {
         .fullScreenImg{
             object-fit:contain;
-            /* height: 100vh; */
             transform: scale(0.8);
-            width: calc(var(--vw,1vw)*100);
-            height: calc(var(--vh,1vh)*100);
-            /* overflow: hidden; */
-            justify-content: center;
-            align-items: center;
         }
     }
 </style>
