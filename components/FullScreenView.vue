@@ -8,7 +8,7 @@
             <div style="display:flex;justify-content: center;align-items: center;">
                 <!-- style="width:100vW;background-color:black;display:flex; justify-content: center;align-items: center;"  -->
                 <img 
-                    src="@/assets/image/vue.png"
+                    src="@/assets/image/sol-nascendo-png-6.png"
                     id="img"
                     :class="{'fullScreenImg':isShowImg}"
                     style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2)"
