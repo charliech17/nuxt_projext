@@ -192,7 +192,7 @@ export default {
 
     .fullScreenImg{
         object-fit:contain;
-        width: 100vw;
+        width: calc(var(--vw,1vw)*100);
         justify-content: center;
         align-items: center;
     }
