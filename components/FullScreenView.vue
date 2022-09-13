@@ -42,6 +42,10 @@ function setViewHeightViewWidth() {
   document.documentElement.style.setProperty('--vw', windowsVW + 'px');
 }
 
+window.addEventListener('resize',()=>{
+  setViewHeightViewWidth()
+})
+
 setViewHeightViewWidth()
 
 export default {
@@ -189,21 +193,14 @@ export default {
     .fullScreenImg{
         object-fit:contain;
         width: 100vw;
-        /* transform: scale(0.8); */
-            /* height: 100vh; */
-        /* overflow: hidden; */
         justify-content: center;
         align-items: center;
     }
 
     @media (orientation:landscape) {
         .fullScreenImg{
-            object-fit:none;
-            transform: scale(0.5);
-        }
-        .img_section{
-            width: 100vw;
-            height: 100vh;
+            /* object-fit:none; */
+            transform: scale(0.8);
         }
     }
 </style>
