@@ -10,12 +10,13 @@
             v-if="isShowImg"
         >
                 <!-- style="width:100vW;background-color:black;display:flex; justify-content: center;align-items: center;"  -->
-                <img 
-                    src="@/assets/image/sol-nascendo-png-6.png"
-                    id="img"
-                    :class="{'fullScreenImg':isShowImg}"
-                    style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2)"
-                >
+                <div class="fullScreenImg">
+                  <img 
+                      src="@/assets/image/sol-nascendo-png-6.png"
+                      id="img"
+                      style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);width:100%;height:100%"
+                  >
+                </div>
                 <div style="position:fixed;left:16px;top:16px;color:white;" @click="isShowImg = false" v-if="isShowImg">X</div>
                 <div style="z-index:2;position:fixed;right:16px;top:16px;transform:rotate(90deg) scale(1.5);color:white;" id="openOtion" @click="isShowMenu=!isShowMenu" v-if="isShowImg">...</div>
                 <div style="position:fixed;right:40px;top:32px;padding:8px;width:60px;background-color:white;box-shadow:0 0 3px 5px rgba(0,0,0,0.2);" v-if="isShowMenu">
@@ -47,11 +48,9 @@ window.addEventListener('resize',()=>{
   let windowsVH = window.innerHeight / 100;
   let windowsVW = window.innerWidth / 100;
   if(windowsVH === initVW &&  windowsVW === initVH) {
-    setTimeout(()=>{
       setViewHeightViewWidth(windowsVH,windowsVW)
       initVH = windowsVH;
       initVW = windowsVW;
-    },50)
   }
 })
 
@@ -203,6 +202,7 @@ export default {
     }
 
     .fullScreenImg{
+        text-align: center;
         width: calc(var(--vw,1vw)*100);
     }
 
