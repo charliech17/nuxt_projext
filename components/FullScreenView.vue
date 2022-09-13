@@ -44,6 +44,7 @@ function setViewHeightViewWidth(windowsVH,windowsVW) {
   document.documentElement.style.setProperty('--vw', windowsVW + 'px');
 }
 
+// resize test
 window.addEventListener('resize',()=>{
   let windowsVH = window.innerHeight / 100;
   let windowsVW = window.innerWidth / 100;
