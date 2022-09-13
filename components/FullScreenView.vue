@@ -5,7 +5,6 @@
             @click="clickImageBackground($event)"
             :class="{'img_section':isShowImg}"
         >
-            <div style="display:flex;justify-content: center;align-items: center;">
                 <!-- style="width:100vW;background-color:black;display:flex; justify-content: center;align-items: center;"  -->
                 <img 
                     src="@/assets/image/sol-nascendo-png-6.png"
@@ -27,7 +26,7 @@
                     @click="toggleFullScreen($event)"
                 >
             </div> -->
-        </div>
+
     </div>
 </template>
 
@@ -46,7 +45,10 @@ window.addEventListener('resize',()=>{
   let windowsVH = window.innerHeight / 100;
   let windowsVW = window.innerWidth / 100;
   if(windowsVH === initVW &&  windowsVW === initVH) {
+    console.log('resize',windowsVH,windowsVW)
     setViewHeightViewWidth(windowsVH,windowsVW)
+    initVH = windowsVH;
+    initVW = windowsVW;
   }
 })
 
@@ -186,6 +188,8 @@ export default {
 <style scoped>
     .img_section{
         display: flex;
+        justify-content: center;
+        align-items: center;
         position: fixed;
         top: 0;
         left: 0;
@@ -195,15 +199,16 @@ export default {
     }
 
     .fullScreenImg{
-        object-fit:contain;
-        justify-content: center;
-        align-items: center;
+        /* object-fit:contain; */
+        width: calc(var(--vw,1vw)*100);
     }
 
     @media (orientation:landscape) {
         .fullScreenImg{
+          width: auto;
+          height: calc(var(--vh,1vh)*100);
             /* object-fit:none; */
-            transform: scale(0.8);
+            /* transform: scale(0.8); */
         }
     }
 </style>
