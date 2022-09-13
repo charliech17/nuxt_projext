@@ -1,9 +1,13 @@
 <template>
     <div>
         <p>點擊下圖進入全螢幕，並可進行<span style="background-color:yellow">分享</span>或<span style="background-color:yellow">下載</span></p>
+        <div style="width:100vw">
+          <img src="@/assets/image/sol-nascendo-png-6.png" v-if="!isShowImg" @click="isShowImg = true" style="width:100%">
+        </div>
         <div 
             @click="clickImageBackground($event)"
-            :class="{'img_section':isShowImg}"
+            class="img_section"
+            v-if="isShowImg"
         >
                 <!-- style="width:100vW;background-color:black;display:flex; justify-content: center;align-items: center;"  -->
                 <img 
@@ -11,7 +15,6 @@
                     id="img"
                     :class="{'fullScreenImg':isShowImg}"
                     style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2)"
-                    @click="isShowImg = true"
                 >
                 <div style="position:fixed;left:16px;top:16px;color:white;" @click="isShowImg = false" v-if="isShowImg">X</div>
                 <div style="z-index:2;position:fixed;right:16px;top:16px;transform:rotate(90deg) scale(1.5);color:white;" id="openOtion" @click="isShowMenu=!isShowMenu" v-if="isShowImg">...</div>
@@ -26,8 +29,7 @@
                     @click="toggleFullScreen($event)"
                 >
             </div> -->
-
-    </div>
+        </div>
 </template>
 
 <script>
@@ -199,7 +201,6 @@ export default {
     }
 
     .fullScreenImg{
-        /* object-fit:contain; */
         width: calc(var(--vw,1vw)*100);
     }
 
