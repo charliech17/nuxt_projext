@@ -206,13 +206,17 @@ export default {
     }
 
     .fullScreenImg{
+        object-fit: contain;
         text-align: center;
         width: calc(var(--vw,1vw)*100);
     }
 
     @media (orientation:landscape) {
         .fullScreenImg{
-          object-fit: contain;
+          flex-grow: 1;
+          width: auto;
+          height: calc(var(--vh,1vh)*100);
+          /* object-fit: contain; */
         }
     }
 </style>
