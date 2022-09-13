@@ -48,14 +48,14 @@ function setViewHeightViewWidth(windowsVH,windowsVW) {
 window.addEventListener('resize',()=>{
   let windowsVH = window.innerHeight / 100;
   let windowsVW = window.innerWidth / 100;
-  if(windowsVH === initVW &&  windowsVW === initVH) {
-      setTimeout(()=>{
+  // if(windowsVH === initVW &&  windowsVW === initVH) {
+      // setTimeout(()=>{
         setViewHeightViewWidth(windowsVH,windowsVW)
         initVH = windowsVH;
         initVW = windowsVW;
-      },200)
+      // },200)
       
-  }
+  // }
 })
 
 setViewHeightViewWidth(initVH,initVW)
@@ -206,17 +206,15 @@ export default {
     }
 
     .fullScreenImg{
-        object-fit: contain;
+        /* object-fit: contain; */
         text-align: center;
         width: calc(var(--vw,1vw)*100);
     }
 
     @media (orientation:landscape) {
         .fullScreenImg{
-          flex-grow: 1;
           width: auto;
           height: calc(var(--vh,1vh)*100);
-          /* object-fit: contain; */
         }
     }
 </style>
