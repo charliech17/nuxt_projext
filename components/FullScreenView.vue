@@ -34,19 +34,23 @@
 <script>
 import html2canvas from 'html2canvas';
 
+let initVH = window.innerHeight / 100;
+let initVW = window.innerWidth / 100;
 
-function setViewHeightViewWidth() {
-  let windowsVH = window.innerHeight / 100;
-  let windowsVW = window.innerWidth / 100;
+function setViewHeightViewWidth(windowsVH,windowsVW) {
   document.documentElement.style.setProperty('--vh', windowsVH + 'px');
   document.documentElement.style.setProperty('--vw', windowsVW + 'px');
 }
 
 window.addEventListener('resize',()=>{
-  setViewHeightViewWidth()
+  let windowsVH = window.innerHeight / 100;
+  let windowsVW = window.innerWidth / 100;
+  if(windowsVH === initVW &&  windowsVW === initVH) {
+    setViewHeightViewWidth(windowsVH,windowsVW)
+  }
 })
 
-setViewHeightViewWidth()
+setViewHeightViewWidth(initVH,initVW)
 
 export default {
     data() {
@@ -192,7 +196,6 @@ export default {
 
     .fullScreenImg{
         object-fit:contain;
-        width: calc(var(--vw,1vw)*100);
         justify-content: center;
         align-items: center;
     }
