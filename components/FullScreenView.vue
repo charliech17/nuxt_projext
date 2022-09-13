@@ -201,5 +201,9 @@ export default {
             object-fit:none;
             transform: scale(0.5);
         }
+        .img_section{
+            width: calc(var(--vh,1vh)*100);
+            height: calc(var(--vw,1vw)*100);
+        }
     }
 </style>
