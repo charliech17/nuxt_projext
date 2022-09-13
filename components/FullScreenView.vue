@@ -47,10 +47,11 @@ window.addEventListener('resize',()=>{
   let windowsVH = window.innerHeight / 100;
   let windowsVW = window.innerWidth / 100;
   if(windowsVH === initVW &&  windowsVW === initVH) {
-    console.log('resize',windowsVH,windowsVW)
-    setViewHeightViewWidth(windowsVH,windowsVW)
-    initVH = windowsVH;
-    initVW = windowsVW;
+    setTimeout(()=>{
+      setViewHeightViewWidth(windowsVH,windowsVW)
+      initVH = windowsVH;
+      initVW = windowsVW;
+    },50)
   }
 })
 
@@ -192,6 +193,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+
         position: fixed;
         top: 0;
         left: 0;
@@ -208,8 +210,6 @@ export default {
         .fullScreenImg{
           width: auto;
           height: calc(var(--vh,1vh)*100);
-            /* object-fit:none; */
-            /* transform: scale(0.8); */
         }
     }
 </style>
