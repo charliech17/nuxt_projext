@@ -40,13 +40,7 @@ function setViewHeightViewWidth() {
   let windowsVW = window.innerWidth / 100;
   document.documentElement.style.setProperty('--vh', windowsVH + 'px');
   document.documentElement.style.setProperty('--vw', windowsVW + 'px');
-
-  console.log('resize',windowsVH,windowsVW)
 }
-
-window.addEventListener('resize', function() {
-    setViewHeightViewWidth()
-});
 
 setViewHeightViewWidth()
 
@@ -205,7 +199,7 @@ export default {
     @media (orientation:landscape) {
         .fullScreenImg{
             object-fit:none;
-            /* transform: scale(1); */
+            transform: scale(0.5);
         }
     }
 </style>
