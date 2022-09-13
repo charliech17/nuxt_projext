@@ -23,14 +23,14 @@
                     <div style="text-align:center;margin:0 -8px 8px -8px;" @click="shareContent">分享</div>
                     <div style="text-align:center" @click="downloadImage">下載</div>
                 </div>
-            </div>
+        </div>
             <!-- <div>
                 <img 
                     src="https://source.unsplash.com/random/1600x900"
                     @click="toggleFullScreen($event)"
                 >
             </div> -->
-        </div>
+    </div>
 </template>
 
 <script>
@@ -49,9 +49,12 @@ window.addEventListener('resize',()=>{
   let windowsVH = window.innerHeight / 100;
   let windowsVW = window.innerWidth / 100;
   if(windowsVH === initVW &&  windowsVW === initVH) {
-      setViewHeightViewWidth(windowsVH,windowsVW)
-      initVH = windowsVH;
-      initVW = windowsVW;
+      setTimeout(()=>{
+        setViewHeightViewWidth(windowsVH,windowsVW)
+        initVH = windowsVH;
+        initVW = windowsVW;
+      },200)
+      
   }
 })
 
@@ -209,8 +212,7 @@ export default {
 
     @media (orientation:landscape) {
         .fullScreenImg{
-          width: auto;
-          height: calc(var(--vh,1vh)*100);
+          object-fit: contain;
         }
     }
 </style>
