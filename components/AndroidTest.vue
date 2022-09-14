@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>各種檔案分享</h1>
         <div>
             <label for="files">Select images to share:</label>
             <input id="files" type="file">

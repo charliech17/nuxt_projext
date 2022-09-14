@@ -1,8 +1,9 @@
 <template>
     <div>
+        <h1>圖片全螢幕</h1>
         <p>點擊下圖進入全螢幕，並可進行<span style="background-color:yellow">分享</span>或<span style="background-color:yellow">下載</span></p>
         <div style="width:100vw">
-          <img src="@/assets/image/sol-nascendo-png-6.png" v-if="!isShowImg" @click="isShowImg = true" style="width:100%">
+          <img src="@/assets/image/sol-nascendo-png-6.png" @click="isShowImg = true" style="width:100%" id="img">
         </div>
         <div 
             @click="clickImageBackground($event)"
@@ -13,7 +14,6 @@
                 <div class="fullScreenImg">
                   <img 
                       src="@/assets/image/sol-nascendo-png-6.png"
-                      id="img"
                       style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);width:100%;height:100%"
                   >
                 </div>
@@ -55,7 +55,7 @@ window.addEventListener('resize',()=>{
   if(windowsVH === initVW &&  windowsVW === initVH) { 
     setTimeout(()=>{
       console.log('hello')
-                window.scrollTo(0, 1);
+                window.scrollTo(0, 100);
               },100)
   }     
   // }
@@ -80,7 +80,7 @@ export default {
         if(isOpen) {
             this.$nextTick(()=>{
               setTimeout(()=>{
-                window.scrollTo(0, 1);
+                window.scrollTo(0, 100);
               },100)
             })  
         } 
@@ -216,8 +216,10 @@ export default {
         position: fixed;
         top: 0;
         left: 0;
-        width: calc(var(--vw,1vw)*100);
-        height: calc(var(--vh,1vh)*100);
+        right: 0;
+        bottom: 0;
+        /* width: calc(var(--vw,1vw)*100);
+        height: calc(var(--vh,1vh)*100); */
         background-color: black;
         overflow: hidden;
         z-index: 100;
