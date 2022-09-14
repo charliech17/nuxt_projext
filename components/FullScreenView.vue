@@ -75,8 +75,9 @@ export default {
       isShowImg: function(isOpen) {
         if(isOpen) {
             this.$nextTick(()=>{
-              const imgSection = document.querySelector('.img_section')
-              imgSection.scrollTop = imgSection.scrollHeight;
+              setTimeout(()=>{
+                window.scrollTo(0, 1);
+              },100)
             })  
         } 
             
