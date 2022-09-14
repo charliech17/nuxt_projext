@@ -216,10 +216,10 @@ export default {
         position: fixed;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
-        /* width: calc(var(--vw,1vw)*100);
-        height: calc(var(--vh,1vh)*100); */
+        /* right: 0;
+        bottom: 0; */
+        width: calc(var(--vw,1vw)*100);
+        height: calc(var(--vh,1vh)*100);
         background-color: black;
         overflow: hidden;
         z-index: 100;
