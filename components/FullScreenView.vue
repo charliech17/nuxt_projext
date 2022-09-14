@@ -48,14 +48,13 @@ function setViewHeightViewWidth(windowsVH,windowsVW) {
 window.addEventListener('resize',()=>{
   let windowsVH = window.innerHeight / 100;
   let windowsVW = window.innerWidth / 100;
-  // if(windowsVH === initVW &&  windowsVW === initVH) {
-      // setTimeout(()=>{
+  if(windowsVH === initVW &&  windowsVW === initVH) {
+      setTimeout(()=>{
         setViewHeightViewWidth(windowsVH,windowsVW)
         initVH = windowsVH;
         initVW = windowsVW;
-      // },200)
-      
-  // }
+      },50)     
+  }
 })
 
 setViewHeightViewWidth(initVH,initVW)
