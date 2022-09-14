@@ -5,16 +5,22 @@
       <h1>測試android</h1>
       <AndroidTest/>
       <h1>測試複製</h1>
-      <p id="copyText">哈囉hello copy</p>
+      <p id="copyText">使用clipboard的方式來複製的文字</p>
       <button @click="copyText">複製</button>
+      <p id="copyText2">使用套件來複製的文字</p>
+      <button id="copyTextBtn" data-clipboard-target="#copyText2">複製</button>
   </div>
 </template>
 
 <script>
 import AndroidTest from '../components/AndroidTest.vue';
+import ClipboardJS from 'clipboard';
 export default {
     name: "IndexPage",
     components: { AndroidTest },
+    mounted() {
+        const clipboard = new ClipboardJS('#copyTextBtn');
+    },
     methods: {
       copyText() {
         const text = document.getElementById('copyText').textContent;
@@ -38,10 +44,3 @@ export default {
     }
 }
 </script>
-
-<style>
-    html,body {
-        margin:0;
-        height:100%;
-    }
-</style>

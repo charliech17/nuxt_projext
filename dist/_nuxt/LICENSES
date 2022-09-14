@@ -1,4 +1,19 @@
 /*!
+ * Vue.js v2.7.10
+ * (c) 2014-2022 Evan You
+ * Released under the MIT License.
+ */
+
+
+/*!
+ * clipboard.js v2.0.11
+ * https://clipboardjs.com/
+ *
+ * Licensed MIT © Zeno Rocha
+ */
+
+
+/*!
  * html2canvas 1.4.1 <https://html2canvas.hertzen.com>
  * Copyright (c) 2022 Niklas von Hertzen <https://hertzen.com>
  * Released under MIT License
@@ -18,13 +33,6 @@
     OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
-
-
-/*!
- * Vue.js v2.7.10
- * (c) 2014-2022 Evan You
- * Released under the MIT License.
- */
 
 
 /*!
