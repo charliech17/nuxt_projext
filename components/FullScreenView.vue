@@ -50,10 +50,14 @@ window.addEventListener('resize',()=>{
   let windowsVW = window.innerWidth / 100;
   // if(windowsVH === initVW &&  windowsVW === initVH) {
       // setTimeout(()=>{
-        setViewHeightViewWidth(windowsVH,windowsVW)
-        initVH = windowsVH;
-        initVW = windowsVW;
-      // },50)     
+  setViewHeightViewWidth(windowsVH,windowsVW)
+  
+  if(windowsVH === initVW &&  windowsVW === initVH) { 
+    setTimeout(()=>{
+      console.log('hello')
+                window.scrollTo(0, 1);
+              },100)
+  }     
   // }
 })
 
