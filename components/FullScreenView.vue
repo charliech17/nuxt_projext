@@ -71,6 +71,12 @@ export default {
             }
         }
     },
+    watch: {
+      isShowImg: function(isOpen) {
+          if(isOpen) return document.body.style.overflowX = 'hidden'
+          if(!isOpen) return document.body.style.overflowX = 'auto'
+      }
+    },
     methods: {
         shareContent() {
             if (navigator.share) {
