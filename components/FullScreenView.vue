@@ -77,17 +77,23 @@ export default {
     },
     watch: {
       isShowImg: function(isOpen) {
-        // if(isOpen) {
-        //     this.$nextTick(()=>{
-        //       // document.body.style.height = "calc(var(--vh,1vh)*100 - 10px)"
-        //     })  
-        // }
+        if(isOpen) {
+            this.$nextTick(()=>{
+              document.body.style.position = 'fixed';
+              document.body.style.top = `-${window.scrollY}px`;
+            })  
+        }
         
-        // if(!isOpen) {
-        //   this.$nextTick(()=>{
-        //       document.body.style.height = "auto"
-        //     })  
-        // }
+        if(!isOpen) {
+          this.$nextTick(()=>{
+              const scrollY = document.body.style.top;
+              document.body.style.position = '';
+              document.body.style.top = '';
+              setTimeout(()=>{
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+              },200)
+            })  
+        }
             
           // if(!isOpen) return document.body.style.overflowX = 'auto'
       }
