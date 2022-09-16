@@ -77,17 +77,17 @@ export default {
     },
     watch: {
       isShowImg: function(isOpen) {
-        if(isOpen) {
-            this.$nextTick(()=>{
-              document.body.style.height = "calc(var(--vh,1vh)*100 - 10px)"
-            })  
-        }
+        // if(isOpen) {
+        //     this.$nextTick(()=>{
+        //       // document.body.style.height = "calc(var(--vh,1vh)*100 - 10px)"
+        //     })  
+        // }
         
-        if(!isOpen) {
-          this.$nextTick(()=>{
-              document.body.style.height = "auto"
-            })  
-        }
+        // if(!isOpen) {
+        //   this.$nextTick(()=>{
+        //       document.body.style.height = "auto"
+        //     })  
+        // }
             
           // if(!isOpen) return document.body.style.overflowX = 'auto'
       }
