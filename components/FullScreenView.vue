@@ -53,10 +53,10 @@ window.addEventListener('resize',()=>{
   setViewHeightViewWidth(windowsVH,windowsVW)
   
   if(windowsVH === initVW &&  windowsVW === initVH) { 
-    setTimeout(()=>{
-      console.log('hello')
-                window.scrollTo(0, 100);
-              },100)
+    // setTimeout(()=>{
+    //   console.log('hello')
+    //             window.scrollTo(0, 100);
+    //           },100)
   }     
   // }
 })
@@ -80,14 +80,12 @@ export default {
         if(isOpen) {
             this.$nextTick(()=>{
               document.body.style.height = "calc(var(--vh,1vh)*100 - 10px)"
-              document.body.style.overflow = "hidden"
             })  
         }
         
         if(!isOpen) {
           this.$nextTick(()=>{
               document.body.style.height = "auto"
-              document.body.style.overflow = "visible"
             })  
         }
             
