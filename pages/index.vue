@@ -3,6 +3,7 @@
       <FullScreenView/>
       <AndroidTest/>
       <CopyText/>
+      <LongPress/>
   </div>
 </template>
 
