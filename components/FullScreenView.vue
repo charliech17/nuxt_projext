@@ -79,11 +79,17 @@ export default {
       isShowImg: function(isOpen) {
         if(isOpen) {
             this.$nextTick(()=>{
-              setTimeout(()=>{
-                window.scrollTo(0, 100);
-              },100)
+              document.body.style.height = "calc(var(--vh,1vh)*100 - 10px)"
+              document.body.style.overflow = "hidden"
             })  
-        } 
+        }
+        
+        if(!isOpen) {
+          this.$nextTick(()=>{
+              document.body.style.height = "auto"
+              document.body.style.overflow = "visible"
+            })  
+        }
             
           // if(!isOpen) return document.body.style.overflowX = 'auto'
       }
