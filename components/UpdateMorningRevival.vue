@@ -44,6 +44,8 @@ export default {
             if(status) {
                 this.updateStatusText = "更新成功";
                 this.updateStatusCode = true
+
+                fetch(process.env.UPDATELOCAL)
             } else{
                 this.updateStatusText = "更新失敗" ;
                 this.updateStatusCode = false ;
