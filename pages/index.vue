@@ -4,6 +4,7 @@
       <AndroidTest/>
       <CopyText/>
       <LongPress/>
+      <MutiImageView/>
   </div>
 </template>
 
