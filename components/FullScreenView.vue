@@ -51,10 +51,20 @@ window.addEventListener('resize',()=>{
   // if(windowsVH === initVW &&  windowsVW === initVH) {
       // setTimeout(()=>{
   setViewHeightViewWidth(windowsVH,windowsVW)
-  
+
   if(windowsVH === initVW &&  windowsVW === initVH) { 
-    setTimeout(()=>{
+    let outerTimeout;
+    let innerTimeout;
+     outerTimeout = setTimeout(()=>{
         setViewHeightViewWidth(initVW,initVH)
+
+        innerTimeout = setTimeout(()=>{
+          let windowsVH = window.innerHeight / 100;
+          let windowsVW = window.innerWidth / 100;
+          setViewHeightViewWidth(windowsVH,windowsVW)
+          clearTimeout(outerTimeout)
+          clearTimeout(innerTimeout)
+        },200)
     },200)
   }     
   // }
