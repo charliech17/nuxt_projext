@@ -53,19 +53,19 @@ window.addEventListener('resize',()=>{
   setViewHeightViewWidth(windowsVH,windowsVW)
 
   if(windowsVH === initVW &&  windowsVW === initVH) { 
-    let outerTimeout;
-    let innerTimeout;
-     outerTimeout = setTimeout(()=>{
-        setViewHeightViewWidth(initVW,initVH)
+    // let outerTimeout;
+    // let innerTimeout;
+    //  outerTimeout = setTimeout(()=>{
+    //     setViewHeightViewWidth(initVW,initVH)
 
-        innerTimeout = setTimeout(()=>{
-          let windowsVH = window.innerHeight / 100;
-          let windowsVW = window.innerWidth / 100;
-          setViewHeightViewWidth(windowsVH,windowsVW)
-          clearTimeout(outerTimeout)
-          clearTimeout(innerTimeout)
-        },200)
-    },200)
+    //     innerTimeout = setTimeout(()=>{
+    //       let windowsVH = window.innerHeight / 100;
+    //       let windowsVW = window.innerWidth / 100;
+    //       setViewHeightViewWidth(windowsVH,windowsVW)
+    //       clearTimeout(outerTimeout)
+    //       clearTimeout(innerTimeout)
+    //     },200)
+    // },200)
   }     
   // }
 })
@@ -235,10 +235,10 @@ export default {
         position: fixed;
         top: 0;
         left: 0;
-        /* right: 0;
-        bottom: 0; */
-        width: calc(var(--vw,1vw)*100);
-        height: calc(var(--vh,1vh)*100);
+        right: 0;
+        bottom: 0;
+        /* width: calc(var(--vw,1vw)*100);
+        height: calc(var(--vh,1vh)*100); */
         background-color: black;
         overflow: hidden;
         z-index: 100;
