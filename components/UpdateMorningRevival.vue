@@ -18,6 +18,7 @@ export default {
         }
     },
     methods:{
+        // 測試~~
         async sendValid() {
             const bodyReq = JSON.stringify({passSecrect:this.inputData});
             const headerSetting = {'Content-Type':'application/json'};
