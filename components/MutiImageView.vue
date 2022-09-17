@@ -11,25 +11,22 @@
             v-if="isShowImg"
         >
                 <div class="fullScreenImg" id="imgViewer">
-                    <div class="imageContainer">
+                    <div class="imageContainer" id="image1">
                         <img 
                             src="@/assets/image/vue.png"
                             style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);"
-                            id="image1"
                         />
                     </div>
-                    <div class="imageContainer">
+                    <div class="imageContainer" id="image2">
                         <img 
                             src="@/assets/image/sol-nascendo-png-6.png"
                             style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);"
-                            id="image2"
                         />
                     </div>
-                    <div class="imageContainer">
+                    <div class="imageContainer" id="image3">
                         <img 
                             src="@/assets/image/png-transparent-cartoon-cute-puppy-cartoon-lovely-puppy.png"
                             style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);"
-                            id="image3"
                         />
                     </div>
                 </div>
@@ -91,8 +88,8 @@ export default {
         async handleNavigatorShare() {
             try {
                 const idNumber = Math.floor(document.querySelector('#imgViewer').scrollLeft / window.innerWidth)
-                const image = document.getElementById(`image${idNumber+1}`)
-                const canvasElement = await html2canvas(image);
+                const imageDIV = document.getElementById(`image${idNumber+1}`)
+                const canvasElement = await html2canvas(imageDIV);
                 const dataUrl = canvasElement.toDataURL();
                 const blob = await (await fetch(dataUrl)).blob();
                 const filesArray = [
@@ -132,7 +129,10 @@ export default {
         },
         async downloadImage() {
             const idNumber = Math.floor(document.querySelector('#imgViewer').scrollLeft / window.innerWidth)
-            const imageSrc = document.getElementById(`image${idNumber+1}`).src
+            const imageDIV = document.getElementById(`image${idNumber+1}`)
+            const canvasElement = await html2canvas(imageDIV);
+            const imageSrc = canvasElement.toDataURL();
+
             const image = await fetch(imageSrc)
             const imageBlog = await image.blob()
             const imageURL = URL.createObjectURL(imageBlog)
@@ -148,6 +148,9 @@ export default {
             if(event.target.id === 'openOtion') return
             this.isShowMenu = false
         },
+        canvasToImg() {
+
+        }
     }
 }
 </script>
