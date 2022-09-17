@@ -240,7 +240,7 @@ export default {
         /* object-fit: contain; */
         width: calc(var(--vw,1vw)*100);
         height: calc(var(--vh,1vh)*100);
-        touch-action: pinch-zoom;
+        /* touch-action: pinch-zoom; */
     }
 
     .fullScreenImg>img{
