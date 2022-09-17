@@ -238,8 +238,8 @@ export default {
     .fullScreenImg{
         overflow: hidden;
         /* object-fit: contain; */
-        width: calc(var(--vw,1vw)*100);
-        height: calc(var(--vh,1vh)*100);
+        width: 100%;
+        height: 100%;
         touch-action: pinch-zoom;
     }
 
