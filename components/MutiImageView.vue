@@ -36,7 +36,7 @@
                     <div style="text-align:center;margin:0 -8px 8px -8px;" @click="shareContent">分享</div>
                     <div style="text-align:center" @click="downloadImage">下載</div>
                 </div>
-        </div>；
+        </div>
     </div>
 </template>
 

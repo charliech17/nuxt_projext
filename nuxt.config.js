@@ -4,6 +4,9 @@ export default {
 
   ssr: false,
 
+  env: {
+    UPDATEURL: process.env.UPDATEURL || 'http://localhost:3000'
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxt_project',

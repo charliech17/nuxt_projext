@@ -5,6 +5,7 @@
       <CopyText/>
       <LongPress/>
       <MutiImageView/>
+      <UpdateMorningRevival/>
   </div>
 </template>
 
