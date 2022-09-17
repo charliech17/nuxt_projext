@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>更新晨興聖言文章</h1>
-        <p>串接 node.js api </p>
+        <p>串接 node.js api <a :href="revivalSite">前往網站</a></p>
         <input type="text" v-model="inputData">
         <button @click="sendValid" :disabled="!inputData">送出</button>
         <span :class="[updateStatusCode ? 'textGreen' :  'textRed']">{{updateStatusText}}</span>
@@ -15,6 +15,7 @@ export default {
             inputData: null,
             updateStatusText: "",
             updateStatusCode: null,
+            revivalSite: "https://morningrevial-betterview.netlify.app/"
         }
     },
     methods:{
