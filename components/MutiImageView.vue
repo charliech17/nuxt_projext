@@ -13,18 +13,21 @@
                 <div class="fullScreenImg" id="imgViewer">
                     <div class="imageContainer" id="image1">
                         <img 
+                            draggable="false"
                             src="@/assets/image/vue.png"
                             style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);"
                         />
                     </div>
                     <div class="imageContainer" id="image2">
                         <img 
+                            draggable="false"
                             src="@/assets/image/sol-nascendo-png-6.png"
                             style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);"
                         />
                     </div>
                     <div class="imageContainer" id="image3">
                         <img 
+                            draggable="false"
                             src="@/assets/image/png-transparent-cartoon-cute-puppy-cartoon-lovely-puppy.png"
                             style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);"
                         />
@@ -41,7 +44,7 @@
 </template>
 
 <script>
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 
 export default {
     data() {
@@ -89,9 +92,6 @@ export default {
             try {
                 const idNumber = Math.floor(document.querySelector('#imgViewer').scrollLeft / window.innerWidth)
                 const imageElementSrc = document.querySelector(`#image${idNumber+1} > img`).src
-                // const imageDIV = document.getElementById(`image${idNumber+1}`)
-                // const canvasElement = await html2canvas(imageDIV);
-                // const dataUrl = canvasElement.toDataURL();
                 const blob = await (await fetch(imageElementSrc)).blob();
                 const filesArray = [
                         new File(
@@ -157,10 +157,11 @@ export default {
 
 <style scoped>
     .img_section{
+        /* 將照片置中，橫向排列 */
         display: flex;
         justify-content: center;
         align-items: center;
-
+        /* 設定黑色全螢幕 */
         position: fixed;
         top: 0;
         left: 0;
@@ -170,22 +171,34 @@ export default {
     }
 
     .fullScreenImg{
+        /* 設定橫向滑動 */
         -webkit-overflow-scrolling: touch;
         overflow-x: auto;
         display: flex;
+        /* 設定滑動type(如此必滑動到影像部分) */
         scroll-snap-type: x mandatory;
+        /* 設定寬度高度全滿 */
         width: 100%;
         height: 100%;
     }
 
     .fullScreenImg>.imageContainer{
+        /* 設定滑動到位置、是否總是顯示(部會滑超過) */
         scroll-snap-align: start;
         scroll-snap-stop: always;
+        /* 不要讓圖片縮小，不然三張圖片會擠在一頁 */
         flex-shrink: 0;
+        /* 設定寬度滿版 */
         width: 100vw;
+        /* 設定高度100% 超過hidden */
+        height: 100%;
+        overflow-y: hidden;
+        /* 設定照片間距24px */
+        margin-left: 24px;
     }
 
     .imageContainer > img {
+        /* 設定照片吻合container大小 */
         object-fit: contain;
         width:100%;
         height:100%;
