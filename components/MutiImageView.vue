@@ -88,10 +88,11 @@ export default {
         async handleNavigatorShare() {
             try {
                 const idNumber = Math.floor(document.querySelector('#imgViewer').scrollLeft / window.innerWidth)
-                const imageDIV = document.getElementById(`image${idNumber+1}`)
-                const canvasElement = await html2canvas(imageDIV);
-                const dataUrl = canvasElement.toDataURL();
-                const blob = await (await fetch(dataUrl)).blob();
+                const imageElementSrc = document.querySelector(`#image${idNumber+1} > img`).src
+                // const imageDIV = document.getElementById(`image${idNumber+1}`)
+                // const canvasElement = await html2canvas(imageDIV);
+                // const dataUrl = canvasElement.toDataURL();
+                const blob = await (await fetch(imageElementSrc)).blob();
                 const filesArray = [
                         new File(
                                     [blob],
@@ -129,11 +130,9 @@ export default {
         },
         async downloadImage() {
             const idNumber = Math.floor(document.querySelector('#imgViewer').scrollLeft / window.innerWidth)
-            const imageDIV = document.getElementById(`image${idNumber+1}`)
-            const canvasElement = await html2canvas(imageDIV);
-            const imageSrc = canvasElement.toDataURL();
+            const imageElementSrc = document.querySelector(`#image${idNumber+1} > img`).src
 
-            const image = await fetch(imageSrc)
+            const image = await fetch(imageElementSrc)
             const imageBlog = await image.blob()
             const imageURL = URL.createObjectURL(imageBlog)
 
