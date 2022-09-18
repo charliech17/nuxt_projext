@@ -11,7 +11,7 @@
             v-if="isShowImg"
         >
             <div class="fullScreenImg" id="imgViewer">
-                <div class="imageContainer" id="image1" @click="handlePointerStart">
+                <div class="imageContainer" id="image1">
                     <img 
                         draggable="false"
                         src="@/assets/image/vue.png"
