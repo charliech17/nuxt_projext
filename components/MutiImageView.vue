@@ -10,37 +10,35 @@
             class="img_section"
             v-if="isShowImg"
         >
-                <div class="outerViewer">
-                    <div class="fullScreenImg" id="imgViewer">
-                        <div class="imageContainer" id="image1">
-                            <img 
-                                draggable="false"
-                                src="@/assets/image/vue.png"
-                                style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);"
-                            />
-                        </div>
-                        <div class="imageContainer" id="image2">
-                            <img 
-                                draggable="false"
-                                src="@/assets/image/sol-nascendo-png-6.png"
-                                style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);"
-                            />
-                        </div>
-                        <div class="imageContainer" id="image3">
-                            <img 
-                                draggable="false"
-                                src="@/assets/image/png-transparent-cartoon-cute-puppy-cartoon-lovely-puppy.png"
-                                style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);"
-                            />
-                        </div>
-                    </div>
+            <div class="fullScreenImg" id="imgViewer">
+                <div class="imageContainer" id="image1" @click="handlePointerStart">
+                    <img 
+                        draggable="false"
+                        src="@/assets/image/vue.png"
+                        style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);"
+                    />
                 </div>
-                <div style="position:absolute;left:16px;top:16px;color:white;" @click="isShowImg = false" v-if="isShowImg">X</div>
-                <div style="z-index:2;position:absolute;right:16px;top:16px;transform:rotate(90deg) scale(1.5);color:white;" id="openOtion" @click="isShowMenu=!isShowMenu" v-if="isShowImg">...</div>
-                <div style="position:absolute;right:40px;top:32px;padding:8px;width:60px;background-color:white;box-shadow:0 0 3px 5px rgba(0,0,0,0.2);" v-if="isShowMenu">
-                    <div style="text-align:center;margin:0 -8px 8px -8px;" @click="shareContent">分享</div>
-                    <div style="text-align:center" @click="downloadImage">下載</div>
+                <div class="imageContainer" id="image2">
+                    <img 
+                        draggable="false"
+                        src="@/assets/image/sol-nascendo-png-6.png"
+                        style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);"
+                    />
                 </div>
+                <div class="imageContainer" id="image3">
+                    <img 
+                        draggable="false"
+                        src="@/assets/image/png-transparent-cartoon-cute-puppy-cartoon-lovely-puppy.png"
+                        style="box-shadow: 0 0 3px 5px rgba(0,0,0,0.2);"
+                    />
+                </div>
+            </div>
+            <div style="position:absolute;left:16px;top:16px;color:white;" @click="isShowImg = false" v-if="isShowImg">X</div>
+            <div style="z-index:2;position:absolute;right:16px;top:16px;transform:rotate(90deg) scale(1.5);color:white;" id="openOtion" @click="isShowMenu=!isShowMenu" v-if="isShowImg">...</div>
+            <div style="position:absolute;right:40px;top:32px;padding:8px;width:60px;background-color:white;box-shadow:0 0 3px 5px rgba(0,0,0,0.2);" v-if="isShowMenu">
+                <div style="text-align:center;margin:0 -8px 8px -8px;" @click="shareContent">分享</div>
+                <div style="text-align:center" @click="downloadImage">下載</div>
+            </div>
         </div>
     </div>
 </template>
@@ -149,9 +147,6 @@ export default {
             if(event.target.id === 'openOtion') return
             this.isShowMenu = false
         },
-        canvasToImg() {
-
-        }
     }
 }
 </script>
@@ -171,23 +166,10 @@ export default {
         bottom: 0;
         background-color: black;
         /* test */
-        touch-action: none;
-    }
-
-    .outerViewer {
-        position: relative;
-        height: calc(100% - 75px) ;
-        width: 100%;
-        /* test */
-        touch-action: auto;
+        /* touch-action: pan-x pan-y; */
     }
 
     .fullScreenImg{
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
         /* 設定橫向滑動 */
         -webkit-overflow-scrolling: touch;
         overflow-x: auto;
