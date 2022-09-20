@@ -6,6 +6,7 @@
       <LongPress/>
       <MutiImageView/>
       <UpdateMorningRevival/>
+      <StatusbarColor/>
   </div>
 </template>
 
