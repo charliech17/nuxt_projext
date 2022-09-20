@@ -64,6 +64,7 @@ export default {
                 this.$nextTick(()=>{
                     document.body.style.position = 'fixed';
                     document.body.style.top = `-${window.scrollY}px`;
+                    document.body.style.backgroundColor = "black"
                 })  
             }
         
@@ -72,6 +73,7 @@ export default {
                 const scrollY = document.body.style.top;
                 document.body.style.position = '';
                 document.body.style.top = '';
+                document.body.style.backgroundColor = ""
                 setTimeout(()=>{
                     window.scrollTo(0, parseInt(scrollY || '0') * -1);
                 },200)
