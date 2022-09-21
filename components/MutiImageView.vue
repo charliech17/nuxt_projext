@@ -73,8 +73,6 @@ export default {
         
         if(!isOpen) {
             this.$nextTick(()=>{
-
-                alert(this.scrollY)
                 document.body.style.position = '';
                 document.body.style.top = '';
                 document.body.style.backgroundColor = ""
