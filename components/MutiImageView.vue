@@ -55,28 +55,32 @@ export default {
                 url: 'https://pjchender.blogspot.com', // 要分享的 URL
                 title: '分享DOM的圖片', // 要分享的標題
                 text: '需要下載html2canvas這個套件', // 要分享的文字內容
-            }
+            },
+            scrollY: 0,
         }
     },
     watch: {
         isShowImg: function(isOpen) {
             if(isOpen) {
                 this.$nextTick(()=>{
+                    this.scrollY = window.scrollY
+
                     document.body.style.position = 'fixed';
-                    document.body.style.top = `-${window.scrollY}px`;
+                    document.body.style.top = `-${this.scrollY}px`;
                     document.body.style.backgroundColor = "black"
                 })  
             }
         
         if(!isOpen) {
             this.$nextTick(()=>{
-                const scrollY = document.body.style.top;
+
+                alert(this.scrollY)
                 document.body.style.position = '';
                 document.body.style.top = '';
                 document.body.style.backgroundColor = ""
                 setTimeout(()=>{
-                    window.scrollTo(0, parseInt(scrollY || '0') * -1);
-                },200)
+                    window.scrollTo({top: (this.scrollY) ,behavior:'auto'});
+                },50)
             })  
         }
         }
