@@ -7,6 +7,7 @@
       <MutiImageView/>
       <UpdateMorningRevival/>
       <StatusbarColor/>
+      <SpecificTime/>
   </div>
 </template>
 
