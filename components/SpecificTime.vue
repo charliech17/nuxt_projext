@@ -9,20 +9,20 @@ import moment from "moment";
 export default {
     mounted() {
         //  各國時間 (語言，時區)
-        // const SouelTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Seoul'}) //('zh-TW', { timeZone: 'Asia/Taipei' })
-        // const TokyioTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Tokyo'}) //('zh-TW', { timeZone: 'Asia/Taipei' })
-        // const NewYorkTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'America/New_York'}) //('zh-TW', { timeZone: 'Asia/Taipei' })
-        const TaiwanTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Taipei'}) //('zh-TW', { timeZone: 'Asia/Taipei' })
+        // const SouelTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Seoul'}) 
+        // const TokyioTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Tokyo'})
+        // const NewYorkTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'America/New_York'})
+        const TaiwanTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Taipei'})
         
         // 時間運算
-        const limitStartTime = new Date(moment(new Date(TaiwanTime)).format("YYYY/MM/DD/16:30+0800"))
-        const limitEndTime   = new Date(moment(new Date(TaiwanTime)).format("YYYY/MM/DD/17:50+0800"))
+        const limitStartTime = new Date(moment(new Date(TaiwanTime)).format("YYYY/MM/DD/09:00+0800"))
+        const limitEndTime   = new Date(moment(new Date(TaiwanTime)).format("YYYY/MM/DD/09:50+0800"))
         const nowTime        = new Date()
 
         console.log(limitStartTime,limitEndTime)
 
         // 判斷時間是否介於startTime與endTime之間
-        if(nowTime <= limitEndTime && nowTime >= limitStartTime ) {
+        if(nowTime < limitEndTime && nowTime >= limitStartTime ) {
             alert('can not enter')
         }
 
