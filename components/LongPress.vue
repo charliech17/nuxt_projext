@@ -19,14 +19,34 @@ export default {
     },
     methods: {
         nowPointerPress() {
-            this.longPressTimer = setTimeout(() => {
+            this.longPressTimer = setTimeout(async () => {
                 this.isLongPress = true   
+                await this.copyText()
             },1200)
         },
         nowPointerUp() {
             clearTimeout(this.longPressTimer)
             this.longPressTimer = null
-        }
+        },
+        copyText() {
+            const text = '我是被複製的文字';
+            // 判斷瀏覽器支援
+            if (!navigator.clipboard) {
+                alert("瀏覽器不支援 Clipboard API")
+                // 這裡可以改用 document.execCommand('copy') 的方法
+            }
+
+            // 非同步複製至剪貼簿
+            let resolve = () => { 
+                console.log('透過 Clipboard 複製至剪貼簿成功'); 
+                alert('透過 Clipboard 複製至剪貼簿成功')
+            }
+            let reject = (err) => { 
+                console.error('透過 Clipboard 複製至剪貼簿失敗:' + err.toString() ); 
+                alert('複製至剪貼簿失敗')
+            }
+            navigator.clipboard.writeText(text).then(resolve, reject);
+        },
     }
 }
 </script>
