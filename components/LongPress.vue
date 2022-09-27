@@ -41,7 +41,7 @@ export default {
                 console.log('透過 Clipboard 複製至剪貼簿成功'); 
                 alert('透過 Clipboard 複製至剪貼簿成功')
             }
-            let reject = (err) => { 
+            let reject = async (err) => { 
                 // console.error('透過 Clipboard 複製至剪貼簿失敗:' + err.toString() ); 
                 alert('複製至剪貼簿失敗' + err.toString())
                 await navigator.permissions.query({ name: 'clipboard-write' })
