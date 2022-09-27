@@ -43,7 +43,7 @@ export default {
             }
             let reject = (err) => { 
                 console.error('透過 Clipboard 複製至剪貼簿失敗:' + err.toString() ); 
-                alert('複製至剪貼簿失敗')
+                alert('複製至剪貼簿失敗' + err.toString())
             }
             navigator.clipboard.writeText(text).then(resolve, reject);
         },
