@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>長壓按鈕</h1>
-        <button @pointerdown="nowPointerPress" @pointerup="nowPointerUp" class="removeSelect">可測試長壓按鈕</button>
+        <button @touchstart="nowPointerPress" @touchend.prevent="nowPointerUp" @mousedown="nowPointerPress" @mouseup="nowPointerUp" class="removeSelect">可測試長壓按鈕</button>
         <div>
             <p :class="{'longPressText': isLongPress}">{{isLongPress ? '偵測到長壓按鈕' : '長壓上面按鈕，變更文字'}}</p>
             <button @click="isLongPress=false" tabindex="-1">清除</button>
@@ -19,18 +19,18 @@ export default {
     },
     methods: {
         nowPointerPress() {
-            this.copyText()
-            // this.longPressTimer = setTimeout(() => {
-            //     this.isLongPress = true   
-            //     this.copyText()
-            // },1200)
+            // this.copyText()
+            this.longPressTimer = setTimeout(() => {
+                this.isLongPress = true   
+                this.copyText()
+            },1200)
         },
         nowPointerUp() {
             clearTimeout(this.longPressTimer)
             this.longPressTimer = null
         },
         async copyText() {
-            const text = '我是被複製的文字';
+            const text = '我是被長壓複製的文字';
             // 判斷瀏覽器支援
             if (!navigator.clipboard) {
                 alert("瀏覽器不支援 Clipboard API")
