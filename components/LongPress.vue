@@ -4,7 +4,7 @@
         <button @pointerdown="nowPointerPress" @pointerup="nowPointerUp" class="removeSelect">可測試長壓按鈕</button>
         <div>
             <p :class="{'longPressText': isLongPress}">{{isLongPress ? '偵測到長壓按鈕' : '長壓上面按鈕，變更文字'}}</p>
-            <div tabindex="-1" class="removeSelect" id="focusTxt" @pointerdown="nowPointerPress" @pointerup="nowPointerUp" @blur="removeFocus">我是要被長壓後複製的文字</div>
+            <div tabindex="-1" class="removeSelect" style="outline:none" id="focusTxt" @pointerdown="nowPointerPress" @pointerup="nowPointerUp" @blur="removeFocus">我是要被長壓後複製的文字</div>
             <button @click="isLongPress=false" tabindex="-1">清除</button>
         </div>
     </div>
@@ -39,7 +39,7 @@ export default {
                 // const range = document.createRange()
                 // range.selectNode(element)
 
-            },1200)
+            },800)
         },
         nowPointerUp() {
             clearTimeout(this.longPressTimer)
