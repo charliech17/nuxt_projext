@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>長壓按鈕</h1>
-        <button @touchstart="nowPointerPress" @touchend.prevent="nowPointerUp" @mousedown="nowPointerPress" @mouseup="nowPointerUp" class="removeSelect">可測試長壓按鈕</button>
+        <button @touchstart.prevent="nowPointerPress" @touchend.prevent="nowPointerUp" class="removeSelect">可測試長壓按鈕</button>
         <div>
             <p :class="{'longPressText': isLongPress}">{{isLongPress ? '偵測到長壓按鈕' : '長壓上面按鈕，變更文字'}}</p>
             <button @click="isLongPress=false" tabindex="-1">清除</button>
