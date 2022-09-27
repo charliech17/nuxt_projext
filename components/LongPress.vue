@@ -19,9 +19,9 @@ export default {
     },
     methods: {
         nowPointerPress() {
-            this.longPressTimer = setTimeout(async () => {
+            this.longPressTimer = setTimeout(() => {
                 this.isLongPress = true   
-                await this.copyText()
+                this.copyText()
             },1200)
         },
         nowPointerUp() {
@@ -35,28 +35,14 @@ export default {
                 alert("瀏覽器不支援 Clipboard API")
                 // 這裡可以改用 document.execCommand('copy') 的方法
             }
-
-            // 非同步複製至剪貼簿
-            let resolve = () => { 
+            
+            navigator.clipboard.writeText(text).then(()=>{
                 console.log('透過 Clipboard 複製至剪貼簿成功'); 
                 alert('透過 Clipboard 複製至剪貼簿成功')
-            }
-            let reject = async (err) => { 
-                // console.error('透過 Clipboard 複製至剪貼簿失敗:' + err.toString() ); 
+            }).catch(()=>{
+                console.error('透過 Clipboard 複製至剪貼簿失敗:' + err.toString() ); 
                 alert('複製至剪貼簿失敗' + err.toString())
-                await navigator.permissions.query({ name: 'clipboard-write' })
-                .then((permissionObj) => {
-                    alert(permissionObj)
-                    console.log(permissionObj);
-                    // ... check the permission object ...
-                })
-                .catch((error) => {
-                    alert(error)
-                    // couldn't query the permission
-                    console.error(error);
-                });
-            }
-            await navigator.clipboard.writeText(text).then(resolve, reject);
+            });
         },
     }
 }
