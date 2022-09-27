@@ -36,13 +36,16 @@ export default {
                 // 這裡可以改用 document.execCommand('copy') 的方法
             }
             
-            navigator.clipboard.writeText(text).then(()=>{
+            // 非同步複製至剪貼簿
+            let resolve = () => { 
                 console.log('透過 Clipboard 複製至剪貼簿成功'); 
                 alert('透過 Clipboard 複製至剪貼簿成功')
-            }).catch(()=>{
+            }
+            let reject = (err) => { 
                 console.error('透過 Clipboard 複製至剪貼簿失敗:' + err.toString() ); 
-                alert('複製至剪貼簿失敗' + err.toString())
-            });
+                alert('複製至剪貼簿失敗')
+            }
+            navigator.clipboard.writeText(text).then(resolve, reject);
         },
     }
 }
