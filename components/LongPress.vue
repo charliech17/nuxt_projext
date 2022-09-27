@@ -28,7 +28,7 @@ export default {
             clearTimeout(this.longPressTimer)
             this.longPressTimer = null
         },
-        copyText() {
+        async copyText() {
             const text = '我是被複製的文字';
             // 判斷瀏覽器支援
             if (!navigator.clipboard) {
@@ -42,10 +42,21 @@ export default {
                 alert('透過 Clipboard 複製至剪貼簿成功')
             }
             let reject = (err) => { 
-                console.error('透過 Clipboard 複製至剪貼簿失敗:' + err.toString() ); 
-                alert('複製至剪貼簿失敗' + err.toString())
+                // console.error('透過 Clipboard 複製至剪貼簿失敗:' + err.toString() ); 
+                // alert('複製至剪貼簿失敗' + err.toString())
+                navigator.permissions.query({ name: 'clipboard-write' })
+                .then((permissionObj) => {
+                    alert(permissionObj)
+                    console.log(permissionObj);
+                    // ... check the permission object ...
+                })
+                .catch((error) => {
+                    alert(error)
+                    // couldn't query the permission
+                    console.error(error);
+                });
             }
-            navigator.clipboard.writeText(text).then(resolve, reject);
+            await navigator.clipboard.writeText(text).then(resolve, reject);
         },
     }
 }
