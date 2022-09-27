@@ -19,11 +19,11 @@ export default {
     },
     methods: {
         nowPointerPress() {
-            this.copyText()
-            // this.longPressTimer = setTimeout(() => {
-            //     this.isLongPress = true   
-            //     this.copyText()
-            // },1200)
+            // this.copyText()
+            this.longPressTimer = setTimeout(() => {
+                this.isLongPress = true   
+                this.copyText()
+            },1200)
         },
         nowPointerUp() {
             clearTimeout(this.longPressTimer)
