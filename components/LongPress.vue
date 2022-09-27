@@ -43,8 +43,8 @@ export default {
             }
             let reject = (err) => { 
                 // console.error('透過 Clipboard 複製至剪貼簿失敗:' + err.toString() ); 
-                // alert('複製至剪貼簿失敗' + err.toString())
-                navigator.permissions.query({ name: 'clipboard-write' })
+                alert('複製至剪貼簿失敗' + err.toString())
+                await navigator.permissions.query({ name: 'clipboard-write' })
                 .then((permissionObj) => {
                     alert(permissionObj)
                     console.log(permissionObj);
