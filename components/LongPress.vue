@@ -6,11 +6,14 @@
             <p :class="{'longPressText': isLongPress}">{{isLongPress ? '偵測到長壓按鈕' : '長壓上面按鈕，變更文字'}}</p>
             <button @click="isLongPress=false" tabindex="-1">清除</button>
         </div>
-        <hr>
-        <div    tabindex="-1" class="removeSelect" style="outline:none;position:relative;margin-top:40px;line-height:24px" id="focusTxt" 
-                    @pointerdown="nowPointerPressText" @pointerup="nowPointerUpText" @blur="removeFocus"
-        >
-            長壓此文字，出現複製彈窗 <div v-if="isShowCopyDialog" id="copyTxtDialogId" class="copyDialog" style="position:absolute;top:-26px;" @click="copyText">複製</div>
+        <hr style="margin-bottom:40px">
+        <div id="outerDiv" @pointerdown.stop.prevent="''" style="display:flex;">
+            <div id="focusTxt"   tabindex="-1" class="removeSelect" style="display:inline-block;outline:none;position:relative;line-height:24px;width:fit-content;height:fit-content;background-color:#001e26;color:white"
+                        @pointerdown.prevent.stop="nowPointerPressText" @pointerup="nowPointerUpText"
+            >
+                長壓此文字，出現複製彈窗 <div v-if="isShowCopyDialog" id="copyTxtDialogId" class="copyDialog" style="position:absolute;top:-26px;" @click="copyText">複製</div>
+            </div>
+            <div id="outside" style="flex:1;"></div>
         </div>
     </div>
 </template>
@@ -28,9 +31,11 @@ export default {
     },
     mounted() {
         this.windowClickEvent = window.addEventListener("click",(event)=> {
-            if(event.target.id === "copyTxtDialogId") return 
-            this.isShowCopyDialog = false
-        })
+            console.log(event.target.id)
+            if(event.target.id === "outerDiv" || event.target.id !== "copyTxtDialogId") return this.isShowCopyDialog = false
+            // if(event.target.id === "copyTxtDialogId") return 
+            // this.isShowCopyDialog = false
+        },false)
     },
     methods: {
         nowPointerPress() {
