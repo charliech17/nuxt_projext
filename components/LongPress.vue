@@ -4,8 +4,13 @@
         <button @pointerdown="nowPointerPress" @pointerup="nowPointerUp" class="removeSelect">可測試長壓按鈕</button>
         <div>
             <p :class="{'longPressText': isLongPress}">{{isLongPress ? '偵測到長壓按鈕' : '長壓上面按鈕，變更文字'}}</p>
-            <div tabindex="-1" class="removeSelect" style="outline:none" id="focusTxt" @pointerdown="nowPointerPress" @pointerup="nowPointerUp" @blur="removeFocus">我是要被長壓後複製的文字</div>
             <button @click="isLongPress=false" tabindex="-1">清除</button>
+        </div>
+        <hr>
+        <div    tabindex="-1" class="removeSelect" style="outline:none;position:relative;margin-top:40px;line-height:24px" id="focusTxt" 
+                    @pointerdown="nowPointerPressText" @pointerup="nowPointerUpText" @blur="removeFocus"
+        >
+            長壓此文字，出現複製彈窗 <div v-if="isShowCopyDialog" id="copyTxtDialogId" class="copyDialog" style="position:absolute;top:-26px;" @click="copyText">複製</div>
         </div>
     </div>
 </template>
@@ -15,29 +20,36 @@ export default {
     data() {
         return {
             longPressTimer: null,
-            isLongPress: false
+            longPressTxtTimer: null,
+            isLongPress: false,
+            isShowCopyDialog: false,
+            windowClickEvent:null,
         }
+    },
+    mounted() {
+        this.windowClickEvent = window.addEventListener("click",(event)=> {
+            if(event.target.id === "copyTxtDialogId") return 
+            this.isShowCopyDialog = false
+        })
     },
     methods: {
         nowPointerPress() {
             // this.copyText()
             this.longPressTimer = setTimeout(() => {
                 this.isLongPress = true   
-                const element = document.getElementById('focusTxt')
+                // const element = document.getElementById('focusTxt')
 
-                const selection = window.getSelection();
-                selection.removeAllRanges();
+                // const selection = window.getSelection();
+                // selection.removeAllRanges();
 
-                element.classList.remove('removeSelect')
-                // Select paragraph
-                const range = document.createRange();
-                range.selectNodeContents(element);
-                selection.addRange(range);
+                // element.classList.remove('removeSelect')
+                // // Select paragraph
+                // const range = document.createRange();
+                // range.selectNodeContents(element);
+                // selection.addRange(range);
 
 
-                element.focus()
-                // const range = document.createRange()
-                // range.selectNode(element)
+                // element.focus()
 
             },800)
         },
@@ -45,10 +57,22 @@ export default {
             clearTimeout(this.longPressTimer)
             this.longPressTimer = null
         },
+        nowPointerPressText() {
+            const vueThis = this
+            this.longPressTxtTimer = setTimeout(()=>{
+                this.isShowCopyDialog = true
+            },500)
+        },
+        nowPointerUpText() {
+            clearTimeout(this.longPressTxtTimer)
+            this.longPressTxtTimer = null
+        },
         removeFocus() {
             document.getElementById('focusTxt').classList.add('removeSelect')
         },
         async copyText() {
+            this.isShowCopyDialog = false
+
             const text = '我是被長壓複製的文字';
             // 判斷瀏覽器支援
             if (!navigator.clipboard) {
@@ -74,6 +98,13 @@ export default {
 <style scoped>
     .longPressText {
         color: green;
+    }
+
+    .copyDialog {
+        background-color: #333333;
+        color: #FFFFFF;
+        padding: 2px;
+        border-radius: 5px;
     }
 
     .removeSelect {
