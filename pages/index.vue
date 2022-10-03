@@ -8,6 +8,7 @@
       <UpdateMorningRevival/>
       <StatusbarColor/>
       <SpecificTime/>
+      <TestRelativeFixed/>
   </div>
 </template>
 
