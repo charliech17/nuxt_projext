@@ -1,5 +1,11 @@
 <template>
-    <div>123</div>
+    <div>
+        <hr>
+        <h1>Check is now Time in specific Tawain time range</h1>
+        <input type="time" v-model="startTime" @change="getStartTime">
+        <input type="time" v-model="endTime" @change="getEndTime">
+        <button @click="checkIsInRange">Check Time</button>
+    </div>
 </template>
 
 
@@ -12,34 +18,55 @@ export default {
         // const SouelTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Seoul'}) 
         // const TokyioTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Tokyo'})
         // const NewYorkTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'America/New_York'})
-        const TaiwanTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Taipei'})
+        // const TaiwanTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Taipei'})
         
         // 時間運算
-        const limitStartTime = new Date(moment(new Date(TaiwanTime)).format("YYYY/MM/DD/09:00+0800"))
-        const limitEndTime   = new Date(moment(new Date(TaiwanTime)).format("YYYY/MM/DD/09:50+0800"))
-        const nowTime        = new Date()
+        // const limitStartTime = new Date(moment(new Date(TaiwanTime)).format("YYYY/MM/DD/10:00+0800"))
+        // const limitEndTime   = new Date(moment(new Date(TaiwanTime)).format("YYYY/MM/DD/11:50+0800"))
+        // const nowTime        = new Date()
 
-        console.log(limitStartTime,limitEndTime)
+        // console.log(limitStartTime,limitEndTime)
 
         // 判斷時間是否介於startTime與endTime之間
-        if(nowTime < limitEndTime && nowTime >= limitStartTime ) {
-            alert('can not enter')
-        }
+        // if(nowTime < limitEndTime && nowTime >= limitStartTime ) {
+        //     alert('can not enter')
+        // }
 
         // 如果 nowTime > limitEndTime   => 設定下一個提醒及踢出時間: 隔天16:45 16:50
         // 如果 nowTime < limitStartTime => 設定下一個提醒及踢出時間: 當天16:45 16:50
         
         // 時間相減後的單位(毫秒) 
-        console.log((limitEndTime - limitStartTime) , (limitStartTime - limitEndTime) / 1000)
+        // console.log((limitEndTime - limitStartTime) , (limitStartTime - limitEndTime) / 1000)
 
         //  時間加一天、減一天
-        const addDay = new Date(moment(new Date(TaiwanTime)).add(1,'day').format("YYYY/MM/DD/22:30+0800"))
-        const subtractDay = new Date(moment(new Date(TaiwanTime)).subtract(1,'day').format("YYYY/MM/DD/22:30+0800"))
-        console.log(addDay,subtractDay)
+        // const addDay = new Date(moment(new Date(TaiwanTime)).add(1,'day').format("YYYY/MM/DD/22:30+0800"))
+        // const subtractDay = new Date(moment(new Date(TaiwanTime)).subtract(1,'day').format("YYYY/MM/DD/22:30+0800"))
+        // console.log(addDay,subtractDay)
+    },
+    methods: {
+        getStartTime() {
+            const TaiwanTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Taipei'})
+            this.limitStartTime = new Date(moment(new Date(TaiwanTime)).format(`YYYY/MM/DD/${this.startTime}+0800`))
+        },
+        getEndTime() {
+            const TaiwanTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Taipei'})
+            this.limitEndTime = new Date(moment(new Date(TaiwanTime)).format(`YYYY/MM/DD/${this.endTime}+0800`))
+        },
+        checkIsInRange() {
+            const nowTime = new Date()
+            if(nowTime < this.limitEndTime && nowTime >= this.limitStartTime ) {
+                alert('this time is in range of Taiwan ☺')
+            } else {
+                alert('this time is not in range of Taiwan 😰')
+            }
+        }
     },
     data() {
         return {
-
+            startTime: '',
+            endTime: '',
+            limitStartTime: '',
+            limitEndTime: '',
         }
     },
 }
