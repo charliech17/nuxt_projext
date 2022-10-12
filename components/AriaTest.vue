@@ -3,6 +3,7 @@
         <button @click="isOpenDrawer = true">開啟drawer</button>
         <el-drawer 
             :visible.sync="isOpenDrawer" 
+            :show-close="false"
             title="我是標題" 
             direction="btt"
             role="dialog"
