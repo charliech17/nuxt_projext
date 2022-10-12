@@ -5,6 +5,10 @@
         <input type="time" v-model="startTime" @change="getStartTime">
         <input type="time" v-model="endTime" @change="getEndTime">
         <button @click="checkIsInRange">Check Time</button>
+        <p>startTime:{{startTime}}</p>
+        <p>endTime:{{endTime}}</p>
+        <p>limitStartTime:{{limitStartTime}}</p>
+        <p>limitEndTime:{{limitEndTime}}</p>
     </div>
 </template>
 
@@ -47,10 +51,12 @@ export default {
         getStartTime() {
             const TaiwanTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Taipei'})
             this.limitStartTime = new Date(moment(new Date(TaiwanTime)).format(`YYYY/MM/DD/${this.startTime}+0800`))
+            console.log(this.limitStartTime,"startTime")
         },
         getEndTime() {
             const TaiwanTime = new Date().toLocaleDateString('zh-TW',{timeZone: 'Asia/Taipei'})
             this.limitEndTime = new Date(moment(new Date(TaiwanTime)).format(`YYYY/MM/DD/${this.endTime}+0800`))
+            console.log(this.limitEndTime,"endTime")
         },
         checkIsInRange() {
             const nowTime = new Date()
