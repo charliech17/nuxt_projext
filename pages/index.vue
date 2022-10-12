@@ -8,7 +8,8 @@
       <UpdateMorningRevival/>
       <StatusbarColor/>
       <SpecificTime/>
-      <TestRelativeFixed/>
+      <AriaTest/>
+      <!-- <TestRelativeFixed/> -->
   </div>
 </template>
 
