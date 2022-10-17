@@ -11,7 +11,7 @@
             aria-describedby="dialog1Desc"
         >
             <div role="heading">標題</div>
-            <p>我是內文測試我是內文測試我是內文測試我是內文測試我是內文測試我是內文測試我是內文測試我是內文測試我是內文測試我是內文測試我是內文測試</p>
+            <p>我是內文</p>
             <div role="button">確認</div>
         </el-drawer>
     </div>
