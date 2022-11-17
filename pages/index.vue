@@ -10,6 +10,7 @@
       <SpecificTime/>
       <AriaTest/>
       <UnderstandLifeCycle/>
+      <TestInputScroll/>
       <!-- <TestRelativeFixed/> -->
   </div>
 </template>
@@ -19,6 +20,5 @@ import UnderstandLifeCycle from '../components/UnderstandLifeCycle.vue';
 
 export default {
     name: "IndexPage",
-    components: { UnderstandLifeCycle }
 }
 </script>
