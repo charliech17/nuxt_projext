@@ -11,6 +11,7 @@
       <AriaTest/>
       <UnderstandLifeCycle/>
       <TestInputScroll/>
+      <TestExectueAfterDestroy v-if="isShowTestExectue" @destroyElement="isShowTestExectue = false"/>
       <!-- <TestRelativeFixed/> -->
   </div>
 </template>
@@ -20,5 +21,10 @@ import UnderstandLifeCycle from '../components/UnderstandLifeCycle.vue';
 
 export default {
     name: "IndexPage",
+    data() {
+      return {
+        isShowTestExectue: true,
+      }
+    },
 }
 </script>
