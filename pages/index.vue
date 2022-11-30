@@ -12,13 +12,12 @@
       <UnderstandLifeCycle/>
       <TestInputScroll/>
       <TestExectueAfterDestroy v-if="isShowTestExectue" @destroyElement="isShowTestExectue = false"/>
+      <TestLeaveTime/>
       <!-- <TestRelativeFixed/> -->
   </div>
 </template>
 
 <script>
-import UnderstandLifeCycle from '../components/UnderstandLifeCycle.vue';
-
 export default {
     name: "IndexPage",
     data() {
