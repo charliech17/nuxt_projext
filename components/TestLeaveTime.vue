@@ -14,6 +14,13 @@ export default {
         setInterval(()=>{
             this.countTime = this.countTime - 1  
         },1000)
+        window.addEventListener("visibilitychange",()=>{
+            if (document.visibilityState === 'visible') {
+                console.log('visible')
+            } else {
+                console.log('unvisible')
+            }
+        })
     }
 }
 </script>
