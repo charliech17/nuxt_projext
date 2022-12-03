@@ -14,11 +14,14 @@
       <TestExectueAfterDestroy v-if="isShowTestExectue" @destroyElement="isShowTestExectue = false"/>
       <TestLeaveTime/>
       <AnimationTest/>
+      <ColorPhone/>
       <!-- <TestRelativeFixed/> -->
   </div>
 </template>
 
 <script>
+import ColorPhone from '../components/ColorPhone.vue';
+
 
 export default {
     name: "IndexPage",
@@ -27,5 +30,6 @@ export default {
             isShowTestExectue: true,
         };
     },
+    components: { ColorPhone }
 }
 </script>
