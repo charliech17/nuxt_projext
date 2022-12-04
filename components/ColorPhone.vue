@@ -35,8 +35,8 @@
 <style scoped>
     .image_section{
         background-image: url("@/assets/image/myIphone.png");
-        width: 300px;
-        height: 300px;
+        width: 800px;
+        height: 800px;
         background-size: 100% auto;
         background-repeat: no-repeat;
         image-rendering: crisp-edges;
