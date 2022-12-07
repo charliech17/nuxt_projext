@@ -25,6 +25,7 @@ export default {
     },
     methods: {
         changeStatusbarColor(event) {
+            // 修改html的backgroundColor 也可以改變status bar的顏色
             document.querySelector('meta[name="theme-color"]')?.setAttribute('content', this.txtColor);
         }
     }
