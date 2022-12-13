@@ -15,12 +15,14 @@
       <TestLeaveTime/>
       <AnimationTest/>
       <ColorPhone/>
+      <TestElementLoading/>
       <!-- <TestRelativeFixed/> -->
   </div>
 </template>
 
 <script>
 import ColorPhone from '../components/ColorPhone.vue';
+import TestElementLoading from '../components/TestElementLoading.vue';
 
 
 export default {
@@ -30,6 +32,6 @@ export default {
             isShowTestExectue: true,
         };
     },
-    components: { ColorPhone }
+    components: { ColorPhone, TestElementLoading }
 }
 </script>
