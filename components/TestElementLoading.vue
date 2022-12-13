@@ -19,6 +19,7 @@
                     this.loadingInstance = Loading.service({
                         fullscreen: true,
                         lock: true,
+                        text: '處理中...',
                         spinner: 'el-icon-loadingg',
                         customClass: 'customStyle'
                     })
@@ -44,9 +45,15 @@
         background-repeat: no-repeat;
         background-position: center;
         width: 300px;
-        height: 300px;
+        height: 100px;
         animation: none;
         margin-top: 0;
+        transform: translateY(-50%);
+    }
+    .customStyle .el-loading-text {
+        position: absolute;
+        left: 50%;
+        top: 50px; /** 圖片高度一半 */
         transform: translateY(-50%);
     }
 </style>
