@@ -16,6 +16,7 @@
       <AnimationTest/>
       <ColorPhone/>
       <TestElementLoading/>
+      <InputTest/>
       <!-- <TestRelativeFixed/> -->
   </div>
 </template>
