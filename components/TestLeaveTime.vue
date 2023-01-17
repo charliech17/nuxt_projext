@@ -5,6 +5,7 @@
         <div>{{countTime}}</div>
         <button @click="handleListenPage" style="background-color: #003ACD; color: white;">開始監聽： 離開網頁的事件</button>
         <button @click="handleTimeoutTest" style="background-color: #003ACD; color: white;">開始監聽 setTimeout</button>
+        <div>{{ isNowSetTimeout }}</div>
     </div>
 </template>
 
@@ -13,7 +14,8 @@
 export default {
     data() {
         return {
-            countTime: 100
+            countTime: 100,
+            isNowSetTimeout: '',
         }
     },
     methods:{
@@ -40,12 +42,13 @@ export default {
             window.addEventListener("blur",()=>{
                 console.log('blur囉！！！！')
             })
-        }
-    },
-    handleTimeoutTest() {
-        setTimeout(()=>{
-            alert('10秒到了')
-        },10000)
+        },
+        handleTimeoutTest() {
+            this.isNowSetTimeout = '開始計時'
+            setTimeout(()=>{
+                alert('10秒到了')
+            },10000)
+        },
     },
 }
 </script>
