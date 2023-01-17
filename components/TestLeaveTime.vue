@@ -11,6 +11,8 @@
 
 
 <script>
+import console from 'console'
+
 export default {
     data() {
         return {
@@ -45,9 +47,13 @@ export default {
         },
         handleTimeoutTest() {
             this.isNowSetTimeout = '開始計時'
+            const nowTime = new Date()
+            console.log(nowTime)
             setTimeout(()=>{
                 alert('3分鐘到了')
-            },180000)
+                const finalTime = new Date() 
+                console.log(finalTime - nowTime)
+            },60000)
         },
     },
 }
