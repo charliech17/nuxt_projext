@@ -46,8 +46,8 @@ export default {
         handleTimeoutTest() {
             this.isNowSetTimeout = '開始計時'
             setTimeout(()=>{
-                alert('10秒到了')
-            },10000)
+                alert('3分鐘到了')
+            },180000)
         },
     },
 }
