@@ -6,6 +6,7 @@
         <button @click="handleListenPage" style="background-color: #003ACD; color: white;">開始監聽： 離開網頁的事件</button>
         <button @click="handleTimeoutTest" style="background-color: #003ACD; color: white;">開始監聽 setTimeout</button>
         <div>{{ isNowSetTimeout }}</div>
+        <div>{{ isErrorTime }}</div>
     </div>
 </template>
 
@@ -17,6 +18,7 @@ export default {
         return {
             countTime: 100,
             isNowSetTimeout: '',
+            isErrorTime: '',
         }
     },
     methods:{
@@ -52,6 +54,7 @@ export default {
                 alert('3分鐘到了')
                 const finalTime = new Date() 
                 console.log(finalTime - nowTime)
+                this.isErrorTime = finalTime - nowTime
             },60000)
         },
     },
