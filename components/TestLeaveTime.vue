@@ -11,7 +11,6 @@
 
 
 <script>
-import console from 'console'
 
 export default {
     data() {
