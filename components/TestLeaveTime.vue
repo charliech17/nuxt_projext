@@ -8,21 +8,18 @@
         <div>{{ isNowSetTimeout }}</div>
         <div>{{ isErrorTime }}</div>
         <button @click="handleTimeInterval_3min">測試三分鐘</button>
-        <div>{{ isTimeInterval_3min }}</div>
-        <div>{{ '直接3分鐘：' + interval_3min_realTime }}</div>
-        <div>{{ '每秒去扣的3分鐘：' + interval_every_3min_realTime }}</div>
-        <button @click="handleTimeInterval_10min">測試十分鐘</button>
-        <div>{{ isTimeInterval_10min }}</div>
-        <div>{{ '直接10分鐘：' + interval_10min_realTime }}</div>
-        <div>{{ '每秒去扣的10分鐘：' + interval_every_10min_realTime }}</div>
+        <div>{{ isTimeInterval }}</div>
+        <div> {{ startTime }}</div>
+        <div>{{ '直接3分鐘：' + interval_3min_realTime }}, {{ interval_3min_timestamp }}</div>
+        <div>{{ '每秒去扣的3分鐘：' + interval_every_3min_realTime }},{{ interval_every_3min_timestamp }} </div>
+        <div>{{ '直接10分鐘：' + interval_10min_realTime }}, {{ interval_10min_timestamp }}</div>
+        <div>{{ '每秒去扣的10分鐘：' + interval_every_10min_realTime }}, {{ interval_every_10min_timestamp }} </div>
         <button @click=""></button>
     </div>
 </template>
 
 
 <script>
-import { clearInterval } from 'timers'
-
 
 export default {
     data() {
@@ -30,13 +27,18 @@ export default {
             countTime: 100,
             isNowSetTimeout: '',
             isErrorTime: '',
-            isTimeInterval_3min: '',
+            isTimeInterval: '',
             isTimeInterval_10min: '',
             interval_3min_realTime: '',
             interval_10min_realTime: '',
             interval_every_3min_realTime:'',
             interval_every_10min_realTime:'',
-
+            startTime: '',
+            tenMinStartTime: '',
+            interval_3min_timestamp:'',
+            interval_10min_timestamp: '',
+            interval_every_3min_timestamp:'',
+            interval_every_10min_timestamp:'',
         }
     },
     methods:{
@@ -76,58 +78,60 @@ export default {
             },600000)
         },
         handleTimeInterval_3min() {
-            this.isTimeInterval_3min = '三分鐘開始計時'
-            const nowDate = new Date()
-            let timeInter;
+            this.isTimeInterval = '開始計時'
+            this.startTime = new Date()
+            let endTime_3min = new Date().getTime() + 180*1000;
+            let endTime_10min = new Date().getTime() + 600*1000;
 
-            timeInter = setInterval(()=>{
-                const threeMinTime = new Date()
-                this.interval_3min_realTime = threeMinTime - nowDate
-                clearInterval(timeInter)
+            let timeInter1;
+            timeInter1 = setInterval(()=>{
+                if (new Date().getTime() > endTime_3min) {
+                    this.interval_3min_timestamp = new Date();
+                    console.log('timeInter1', timeInter1)
+                    clearInterval(timeInter1)
+                }   
             },180000)
             
-            let timeInter_3min = 180000
+            
+            this.interval_every_3min_realTime = 0;
             let time_every_interval;
             time_every_interval = setInterval(()=>{
-                if(timeInter_3min == 0) {
-                    timeInter_3min = timeInter_3min - 1000
-                    const threeFinalTime = new Date()
-                    this.interval_every_3min_realTime = threeFinalTime - nowDate
+                if (new Date().getTime() > endTime_3min) {
+                    this.interval_every_3min_timestamp = new Date();
+                    console.log('time_every_interval', time_every_interval)
                     clearInterval(time_every_interval)
-                } else if(timeInter_3min < 0) {
-                    return;
                 } else {
-                    timeInter_3min = timeInter_3min - 1000
-                }               
+                    this.interval_every_3min_realTime++;
+                }        
             },1000)
-        },
-        handleTimeInterval_10min() {
-            this.isTimeInterval_10min =  '十分鐘開始計時'
-            const nowDate = new Date()
-            let timeInter;
 
-            timeInter = setInterval(()=>{
-                const tenMinTime = new Date()
-                this.interval_10min_realTime = tenMinTime - nowDate
-                clearInterval(timeInter)
-            },600000)
 
-            let timeInter_10min = 600000
-            let time_every_interval;
-            time_every_interval = setInterval(()=>{
-                if(timeInter_10min === 0) {
-                    timeInter_10min = timeInter_10min - 1000
-                    const tenFinalTime = new Date()
-                    this.interval_every_10min_realTime = tenFinalTime - nowDate
-                    clearInterval(time_every_interval)
-                } else if(timeInter_10min < 0) {
-                    return
-                }
-                 else {
-                    timeInter_10min = timeInter_10min - 1000
-                }               
+            let timeInter3;
+            timeInter3 = setInterval(()=>{
+                if (new Date().getTime() > endTime_10min) {
+                    this.interval_10min_timestamp = new Date();
+                    console.log('timeInter3', timeInter3)
+                    clearInterval(timeInter3)
+                }   
+            },600*1000)
+
+
+            this.interval_every_10min_realTime = 0;
+            let timeInter4;
+            timeInter4 = setInterval(()=>{
+                if (new Date().getTime() > endTime_10min) {
+                    this.interval_every_10min_timestamp = new Date();
+                    console.log('timeInter4', timeInter4)
+                    clearInterval(timeInter4)
+                } else {
+                    this.interval_every_10min_realTime++;
+                }       
             },1000)
+
+            
+
         },
     },
 }
+
 </script>
