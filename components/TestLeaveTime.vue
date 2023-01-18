@@ -9,12 +9,12 @@
         <div>{{ isErrorTime }}</div>
         <button @click="handleTimeInterval_3min">測試三分鐘</button>
         <div>{{ isTimeInterval_3min }}</div>
-        <div>{{ interval_3min_realTime }}</div>
-        <div>{{ interval_every_3min_realTime }}</div>
+        <div>{{ '直接3分鐘：' + interval_3min_realTime }}</div>
+        <div>{{ '每秒去扣的3分鐘：' + interval_every_3min_realTime }}</div>
         <button @click="handleTimeInterval_10min">測試十分鐘</button>
         <div>{{ isTimeInterval_10min }}</div>
-        <div>{{ interval_10min_realTime }}</div>
-        <div>{{ interval_every_10min_realTime }}</div>
+        <div>{{ '直接10分鐘：' + interval_10min_realTime }}</div>
+        <div>{{ '每秒去扣的10分鐘：' + interval_every_10min_realTime }}</div>
         <button @click=""></button>
     </div>
 </template>
