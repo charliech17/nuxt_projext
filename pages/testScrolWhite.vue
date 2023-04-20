@@ -114,6 +114,7 @@
 .wrapper{
     height: 600px;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 </style>
