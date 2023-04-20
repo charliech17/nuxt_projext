@@ -1,6 +1,6 @@
 <template>
-    <div class="wrapper" id="wrapper">
-        <div>
+    <div class="scrollSection" id="scrollSectionID">
+        <div >
             <div  v-if="isShow1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aliquid eos eius maiores exercitationem quos atque quibusdam odio nobis voluptate illo doloribus asperiores fugiat, quas est, architecto velit sed quae.
             Sequi fuga alias perferendis accusantium, ipsam adipisci necessitatibus odit, vero, eaque obcaecati dolores! Molestiae, nesciunt explicabo! Nesciunt ad similique, nisi asperiores ipsum magni hic, labore fugit dolorum necessitatibus soluta laudantium?
             Temporibus, nam. Sunt sint cumque vitae totam eligendi quis adipisci doloremque ratione vero veniam tenetur nesciunt maiores sequi beatae qui quo quia, ut eius dignissimos aut natus dolorem id! Eos?
@@ -84,8 +84,9 @@
             Sunt, eligendi blanditiis laudantium quaerat nobis doloribus accusamus, ratione officia, possimus voluptate nihil eius hic repellat laboriosam eveniet nostrum! Sit et quidem quia maiores exercitationem commodi quas voluptates quos atque.
             </div>
         </div>
-        <div style="position: fixed; bottom: 0;">
-            <button style="display: block;height: 200px;" @click="handleClick">切換</button>
+        <div class="bottomBtnStyle">
+            <div style="flex:1;background-color: aquamarine;width: 100%;text-align: center;" @click="()=>navigateWhitePage(true)">Ios滑動時點我實現白頁效果</div>
+            <div style="flex:1" @click="() => navigateWhitePage(false)">Ios滑動時點擊無白頁效果</div>
         </div>
     </div>
 </template>
@@ -98,25 +99,52 @@
         }
     },
     mounted() {
+        const vh = window.innerHeight / 100
+        document.documentElement.style.setProperty('--vh',`${vh}px`)
     },
     methods: {
-        handleClick() {
-            document.getElementById('wrapper').style.overflow = 'hidden'
-            this.isShow1 = !this.isShow1
-            this.$nextTick(()=> {
-                document.getElementById('wrapper').scrollTop = 0
-                document.getElementById('wrapper').style.overflow = ''
-            })
+        navigateWhitePage(isShowWhitePage) {
+            const scrollElement = document.getElementById('scrollSectionID')
+            
+            if(isShowWhitePage) {
+                this.isShow1 = !this.isShow1
+                this.$nextTick(()=> {
+                    scrollElement.scrollTop = 0
+                })
+                return 
+            } else {
+                scrollElement.style.overflow = 'hidden' // add this line
+                this.isShow1 = !this.isShow1
+                this.$nextTick(()=> {
+                    scrollElement.scrollTop = 0
+                    scrollElement.style.overflow = '' // add this line
+                })
+            }
         }
     }
  }
 </script>
 
 <style scoped>
-.wrapper{
-    height: 600px;
+.scrollSection{
+    height: calc( var(--vh,1vh)*100 - 100px - 16px);
     overflow: auto;
-    -webkit-overflow-scrolling: touch;
 }
 
+.bottomBtnStyle{
+    position: fixed; 
+    bottom: 0;
+    height: 100px; 
+    background-color: azure; 
+    width: calc(100vw + 16px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: -16px;
+}
+
+.bottomBtnStyle > div{
+    line-height: 50px;
+}
 </style>
