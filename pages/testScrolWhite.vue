@@ -101,11 +101,11 @@
     },
     methods: {
         handleClick() {
-            document.getElementById('wrapper').scrollTop = 0
             this.isShow1 = !this.isShow1
-            // this.$nextTick(()=> {
-            //     document.getElementById('wrapper').scrollTop = 0
-            // })
+            this.$nextTick(()=> {
+                document.getElementById('wrapper').scrollTop = 0
+                this.$forceUpdate()
+            })
         }
     }
  }
