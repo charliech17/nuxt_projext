@@ -135,13 +135,12 @@
     position: fixed; 
     bottom: 0;
     height: 100px; 
-    background-color: azure; 
-    width: calc(100vw + 16px);
+    width: calc(100vw - 8px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: -16px;
+    margin-left: -4px;
 }
 
 .bottomBtnStyle > div{
@@ -150,20 +149,24 @@
 
 .whitePageBtn{
     flex:1;
-    background-color: aquamarine;
+    background-color: rgb(72, 35, 69);
+    color: white;
     width: 100%;
     text-align: center;
+    border: 1px solid black;
+    border-bottom: none;
 }
 
 .normalPageBtn{
     flex:1;
     width: 100%;
     text-align: center;
+    border: 1px solid black;
 }
 
 .normalPageBtn:hover,
 .whitePageBtn:hover{
-    background-color: blueviolet;
+    background-color: rgb(183, 147, 218);
     color: white;
 }
 </style>
