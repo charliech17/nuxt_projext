@@ -1,6 +1,6 @@
 <template>
-    <div class="wrapper">
-        <div class="">
+    <div class="wrapper" id="wrapper">
+        <div>
             <div  v-if="isShow1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aliquid eos eius maiores exercitationem quos atque quibusdam odio nobis voluptate illo doloribus asperiores fugiat, quas est, architecto velit sed quae.
             Sequi fuga alias perferendis accusantium, ipsam adipisci necessitatibus odit, vero, eaque obcaecati dolores! Molestiae, nesciunt explicabo! Nesciunt ad similique, nisi asperiores ipsum magni hic, labore fugit dolorum necessitatibus soluta laudantium?
             Temporibus, nam. Sunt sint cumque vitae totam eligendi quis adipisci doloremque ratione vero veniam tenetur nesciunt maiores sequi beatae qui quo quia, ut eius dignissimos aut natus dolorem id! Eos?
@@ -42,7 +42,7 @@
             Ipsam perspiciatis dolor voluptas neque, nihil quos, eos consectetur cumque iure quia, sunt quibusdam earum illum deserunt voluptates alias porro quae corrupti! Rem consequuntur, impedit incidunt magni expedita recusandae error.
             Sunt, eligendi blanditiis laudantium quaerat nobis doloribus accusamus, ratione officia, possimus voluptate nihil eius hic repellat laboriosam eveniet nostrum! Sit et quidem quia maiores exercitationem commodi quas voluptates quos atque.
             </div>
-            <div v-else>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto illum ratione culpa suscipit sunt. Dolores, rem error reiciendis suscipit ea nam saepe aut consequatur harum id, est, repudiandae obcaecati vel?
+            <div style="background-color: aqua;" v-else>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto illum ratione culpa suscipit sunt. Dolores, rem error reiciendis suscipit ea nam saepe aut consequatur harum id, est, repudiandae obcaecati vel?
             Accusantium, voluptatum ullam! Quis earum harum illum nostrum nam beatae odit maxime illo quo natus suscipit culpa molestias hic adipisci repellendus sed voluptatum, reiciendis possimus deserunt ipsum consectetur! Quae, voluptatum!
             Tempore sint, in dolorum aut ab amet et. Reprehenderit animi est vel? Assumenda error, architecto natus dolore culpa aliquam, harum voluptas magnam nesciunt placeat, doloremque dolorem ab debitis quia velit?
             Vero nihil sint, sed reprehenderit dicta suscipit tenetur facilis, maiores magnam blanditiis qui, molestiae deserunt nam. Minus aliquid hic quam ipsam error et sint, dolores ipsa minima natus totam. Blanditiis?
@@ -85,7 +85,7 @@
             </div>
         </div>
         <div style="position: fixed; bottom: 0;">
-            <button style="display: block;height: 200px;" @click="isShow1 = !isShow1">切換</button>
+            <button style="display: block;height: 200px;" @click="handleClick">切換</button>
         </div>
     </div>
 </template>
@@ -98,15 +98,22 @@
         }
     },
     mounted() {
+    },
+    methods: {
+        handleClick() {
+            this.isShow1 = !this.isShow1
+            this.$nextTick(()=> {
+                document.getElementById('wrapper').scrollTop = 0
+            })
+        }
     }
  }
 </script>
 
 <style scoped>
 .wrapper{
-    height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    height: 600px;
+    overflow: auto;
 }
 
 </style>
