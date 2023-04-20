@@ -85,8 +85,8 @@
             </div>
         </div>
         <div class="bottomBtnStyle">
-            <div style="flex:1;background-color: aquamarine;width: 100%;text-align: center;" @click="()=>navigateWhitePage(true)">Ios滑動時點我實現白頁效果</div>
-            <div style="flex:1" @click="() => navigateWhitePage(false)">Ios滑動時點擊無白頁效果</div>
+            <div class="whitePageBtn" @click="()=>navigateWhitePage(true)">Ios滑動時點我實現白頁效果</div>
+            <div class="normalPageBtn" @click="() => navigateWhitePage(false)">Ios滑動時點擊無白頁效果</div>
         </div>
     </div>
 </template>
@@ -146,5 +146,24 @@
 
 .bottomBtnStyle > div{
     line-height: 50px;
+}
+
+.whitePageBtn{
+    flex:1;
+    background-color: aquamarine;
+    width: 100%;
+    text-align: center;
+}
+
+.normalPageBtn{
+    flex:1;
+    width: 100%;
+    text-align: center;
+}
+
+.normalPageBtn:hover,
+.whitePageBtn:hover{
+    background-color: blueviolet;
+    color: white;
 }
 </style>
