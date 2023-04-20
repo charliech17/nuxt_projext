@@ -101,10 +101,11 @@
     },
     methods: {
         handleClick() {
+            document.getElementById('wrapper').style.overflow = 'hidden'
             this.isShow1 = !this.isShow1
             this.$nextTick(()=> {
                 document.getElementById('wrapper').scrollTop = 0
-                this.$forceUpdate()
+                document.getElementById('wrapper').style.overflow = ''
             })
         }
     }
