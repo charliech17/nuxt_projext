@@ -1,5 +1,5 @@
 <template>
-    <div class="scrollSection" id="scrollSectionID">
+    <div>
         <div>
             <h1>Router Page 1 ~~~</h1>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aliquid eos eius maiores exercitationem quos atque quibusdam odio nobis voluptate illo doloribus asperiores fugiat, quas est, architecto velit sed quae.
@@ -58,15 +58,21 @@
         }
     },
     mounted() {
-        const vh = window.innerHeight / 100
-        document.documentElement.style.setProperty('--vh',`${vh}px`)
+        this.$nextTick(()=> {
+            if(localStorage['needResetScroll']) {
+                document.getElementById('scrollSectionID').style.overflow = 'auto'
+                localStorage.removeItem('needResetScroll')
+            }
+        })
     },
+    layout:'routerWhitePage',
     methods: {
         navigateWhitePage(isShowWhitePage) {
             if(isShowWhitePage) {
                 this.$router.push('/testWhitePage3')
             } else {
                 document.getElementById('scrollSectionID').style.overflow = 'hidden'
+                localStorage['needResetScroll'] = 'yes'
                 this.$nextTick(()=> {
                     this.$router.push('/testWhitePage3')
                 })
@@ -77,10 +83,6 @@
 </script>
 
 <style scoped>
-.scrollSection{
-    height: calc( var(--vh,1vh)*100 - 100px - 16px);
-    overflow: auto;
-}
 
 .bottomBtnStyle{
     position: fixed; 

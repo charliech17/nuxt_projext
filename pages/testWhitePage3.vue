@@ -1,5 +1,5 @@
 <template>
-    <div class="scrollSection" id="scrollSectionID">   
+    <div>   
         <div style="background-color: aqua;">
             <h1>Page 2 ~~~</h1>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto illum ratione culpa suscipit sunt. Dolores, rem error reiciendis suscipit ea nam saepe aut consequatur harum id, est, repudiandae obcaecati vel?
@@ -58,15 +58,21 @@
         }
     },
     mounted() {
-        const vh = window.innerHeight / 100
-        document.documentElement.style.setProperty('--vh',`${vh}px`)
+        this.$nextTick(()=> {
+            if(localStorage['needResetScroll']) {
+                document.getElementById('scrollSectionID').style.overflow = 'auto'
+                localStorage.removeItem('needResetScroll')
+            }
+        })
     },
+    layout:'routerWhitePage',
     methods: {
         navigateWhitePage(isShowWhitePage) {
             if(isShowWhitePage) {
                 this.$router.push('/testWhitePage2')
             } else {
                 document.getElementById('scrollSectionID').style.overflow = 'hidden'
+                localStorage['needResetScroll'] = 'yes'
                 this.$nextTick(()=> {
                     this.$router.push('/testWhitePage2')
                 })
@@ -77,10 +83,6 @@
 </script>
 
 <style scoped>
-.scrollSection{
-    height: calc( var(--vh,1vh)*100 - 100px - 16px);
-    overflow: auto;
-}
 
 .bottomBtnStyle{
     position: fixed; 
