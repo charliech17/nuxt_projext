@@ -57,9 +57,14 @@
             
         }
     },
+    created() {
+        const scrollSection = document.getElementById('scrollSectionID')
+        if(scrollSection) {
+            scrollSection.scrollTop = 0
+        }
+    },
     mounted() {
         this.$nextTick(()=> {
-            document.getElementById('scrollSectionID').scrollTop = 0
             if(localStorage['needResetScroll']) {
                 document.getElementById('scrollSectionID').style.overflow = ''
                 localStorage.removeItem('needResetScroll')
