@@ -57,16 +57,15 @@
             
         }
     },
-    created() {
+    mounted() {
         const scrollSection = document.getElementById('scrollSectionID')
         if(scrollSection) {
             scrollSection.scrollTop = 0
         }
-    },
-    mounted() {
+        
         this.$nextTick(()=> {
             if(localStorage['needResetScroll']) {
-                document.getElementById('scrollSectionID').style.overflow = ''
+                scrollSection.style.overflow = ''
                 localStorage.removeItem('needResetScroll')
             }
         })
