@@ -44,8 +44,8 @@
             Sunt, eligendi blanditiis laudantium quaerat nobis doloribus accusamus, ratione officia, possimus voluptate nihil eius hic repellat laboriosam eveniet nostrum! Sit et quidem quia maiores exercitationem commodi quas voluptates quos atque.
         </div>
         <div class="bottomBtnStyle">
-            <div class="whitePageBtn" @click="()=>navigateWhitePage(true)">Ios滑動時點我實現白頁效果</div>
-            <div class="normalPageBtn" @click="() => navigateWhitePage(false)">Ios滑動時點擊無白頁效果</div>
+            <div class="whitePageBtn" @click="()=>navigateWhitePage(true)">Ios滑動時點我-白頁導頁</div>
+            <div class="normalPageBtn" @click="() => navigateWhitePage(false)">Ios滑動時點我-無白頁導頁</div>
         </div>
     </div>
 </template>
