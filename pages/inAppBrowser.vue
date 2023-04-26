@@ -1,7 +1,8 @@
 <template>
     <div>
         <h1>是否在app Browser <span style="color: blue">{{ judgeIsinApp }}</span></h1>
-        <p>{{ nowBrowser }}</p>
+        <p>{{ nowAgent }}</p>
+        <p>{{ nowInAppBrowser }}</p>
     </div>
 </template>
 
@@ -9,7 +10,8 @@
     export default {
         data() {
             return {
-                nowBrowser: ''
+                nowAgent: '',
+                nowInAppBrowser: '',
             }
         },
         computed: {
@@ -25,12 +27,13 @@
                 };
 
                 const useragent = navigator.userAgent;
-                this.nowBrowser = useragent
+                this.nowAgent = useragent
 
                 for(const eachBrowser in BROWSER) {
                     if(useragent.match(BROWSER[eachBrowser])) {
                         isInAppBrowser = true
-                        return
+                        this.nowInAppBrowser = eachBrowser
+                        break
                     }
                 }
 
