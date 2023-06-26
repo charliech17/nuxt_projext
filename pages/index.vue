@@ -18,6 +18,8 @@
         <ColorPhone/>
         <TestElementLoading/>
         <InputTest/>
+        <TelTest/>
+        <InputBlur/>
         <!-- <TestRelativeFixed/> -->
     </div>
 </template>
