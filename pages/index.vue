@@ -1,24 +1,25 @@
 <template>
-  <div>
-      <FullScreenView/>
-      <AndroidTest/>
-      <CopyText/>
-      <LongPress/>
-      <MutiImageView/>
-      <UpdateMorningRevival/>
-      <StatusbarColor/>
-      <SpecificTime/>
-      <AriaTest/>
-      <UnderstandLifeCycle/>
-      <TestInputScroll/>
-      <TestExectueAfterDestroy v-if="isShowTestExectue" @destroyElement="isShowTestExectue = false"/>
-      <TestLeaveTime/>
-      <AnimationTest/>
-      <ColorPhone/>
-      <TestElementLoading/>
-      <InputTest/>
-      <!-- <TestRelativeFixed/> -->
-  </div>
+    <div>
+        <PdfMutiPage/>
+        <FullScreenView/>
+        <AndroidTest/>
+        <CopyText/>
+        <LongPress/>
+        <MutiImageView/>
+        <UpdateMorningRevival/>
+        <StatusbarColor/>
+        <SpecificTime/>
+        <AriaTest/>
+        <UnderstandLifeCycle/>
+        <TestInputScroll/>
+        <TestExectueAfterDestroy v-if="isShowTestExectue" @destroyElement="isShowTestExectue = false"/>
+        <TestLeaveTime/>
+        <AnimationTest/>
+        <ColorPhone/>
+        <TestElementLoading/>
+        <InputTest/>
+        <!-- <TestRelativeFixed/> -->
+    </div>
 </template>
 
 <script>
