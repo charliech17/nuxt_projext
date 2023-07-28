@@ -3,6 +3,7 @@
         <h1>是否在app Browser <span style="color: blue">{{ judgeIsinApp }}</span></h1>
         <p>{{ nowAgent }}</p>
         <p>{{ nowInAppBrowser }}</p>
+        <a href="https://google.com.tw/?openExternalBrowser=1">連結</a>
     </div>
 </template>
 
