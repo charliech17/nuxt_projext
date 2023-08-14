@@ -21,6 +21,12 @@ export default {
     },
     mounted() {
         console.log('子 Mount', 'data is' + this.test)
+    },
+    beforeDestroy() {
+        console.log('子 beforeDestroy')
+    },
+    destroyed() {
+        console.log('子 beforeDestroy')
     }
 }
 </script>

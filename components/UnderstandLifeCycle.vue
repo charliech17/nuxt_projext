@@ -22,6 +22,12 @@ export default {
     },
     mounted() {
         console.log('父 Mount', 'data is' + this.test)
+    },
+    beforeDestroy() {
+        console.log('父 beforeDestroy')
+    },
+    destroyed() {
+        console.log('父 destroyed')
     }
 }
 </script>
