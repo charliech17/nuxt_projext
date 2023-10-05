@@ -23,6 +23,7 @@
         <InputTest/>
         <TelTest/>
         <InputBlur/>
+        <RecursionCompt :nodeData="nodeData"/>
         <!-- <TestRelativeFixed/> -->
     </div>
 </template>
@@ -38,6 +39,25 @@ export default {
         return {
             isShowTestExectue: true,
             showLifeCycle: false,
+            nodeData: [
+                {
+                    name: "A---------",
+                    subMenu:[
+                        {
+                            name:"A-第二層-1",
+                            subMenu: [{name: "測試1"},{name: "測試2"},{name: "測試3"}],
+                        },
+                        {
+                            name:"A-第二層-2",
+                            subMenu: [{name: "嘿嘿嘿嘿1"},{name: "嘿嘿嘿嘿2"}],
+                        }
+                    ]
+                },
+                {
+                    name: "B---------",
+                    subMenu:[{name:"B-第一層",subMenu: [{name:"yayayaya"}]},{name:"B-第二層"}]
+                }
+            ]
         };
     },
     components: { ColorPhone, TestElementLoading }
