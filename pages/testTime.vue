@@ -33,7 +33,7 @@
                     const nowTime = new Date()
                     console.log(nowTime)
                     setTimeout(()=>{
-                        alert('3分鐘到了')
+                        // alert('3分鐘到了')
                         const finalTime = new Date() 
                         console.log(finalTime - nowTime)
                         this.timeoutRecord3 = finalTime - nowTime
@@ -43,7 +43,7 @@
                     const nowTime = new Date()
                     console.log(nowTime)
                     setTimeout(()=>{
-                        alert('10分鐘到了')
+                        // alert('10分鐘到了')
                         const finalTime = new Date() 
                         console.log(finalTime - nowTime)
                         this.timeoutRecord10 = finalTime - nowTime
