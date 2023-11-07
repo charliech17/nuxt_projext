@@ -7,6 +7,8 @@
         <button id="copyTextBtn" data-clipboard-target="#copyText2">複製</button>
         <p id="copyText3">使用exe來複製的文字</p>
         <button id="copyTextBtn" @click="CopyToClipboard">複製</button>
+        <p></p>
+        <button @click="newCopyAction"></button>
     </div>
 </template>
 
@@ -48,6 +50,16 @@ export default {
             } else {
                 alert('不支援execCommand')
             }
+        },
+        newCopyAction() {
+            if (navigator.clipboard && navigator.clipboard.write) { 
+                var data = [new ClipboardItem(
+                    { "text/plain": Promise.resolve(new Blob(["Copy Text"], { type: 'text/plain' })) })
+            ]; 
+        }
+            navigator.clipboard.write(data).then(()=> {
+
+            })
         }
     }
 }
