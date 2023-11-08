@@ -1,21 +1,21 @@
 <template>
     <div>
-        <div style="position: fixed;top: 0;width: 100%; height: 60px; background-color: black;color: white;">標題</div>
-        <main class="main_style" style="position: relative; z-index: 3;">
+        <div style="position: fixed;z-index: 5;top: 0;width: 100%; height: 60px; background-color: black;color: white;">標題</div>
+        <main class="main_style">
             內文
             <div class="btn-section" id="bottom_btn">
                 按鈕
             </div>
         </main>
         <div>
-            <div style="background-color: aquamarine;">
+            <div style="background-color: aquamarine;position: relative;">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vel nesciunt, autem ipsa sequi dicta. Reprehenderit maxime optio a obcaecati, autem non iusto aperiam saepe magni blanditiis exercitationem rem mollitia.
                 Mollitia amet facilis corrupti ullam odio est aliquid laudantium, atque laboriosam beatae suscipit voluptate officiis perferendis repellat esse assumenda ad excepturi aperiam dignissimos. Incidunt provident at aperiam nobis unde. Fugiat.
                 At, molestias? Velit deserunt sunt enim odio veritatis! Officia beatae necessitatibus explicabo ut vitae deserunt maiores similique recusandae minima esse nulla ratione dolorem asperiores excepturi impedit quo pariatur, inventore ea!
                 Maiores, ab esse beatae a dolor nulla, quaerat in magni minima iste omnis? Neque cum quia, iure veritatis quasi earum quas eius soluta blanditiis dolores labore distinctio itaque? Blanditiis, sint.
                 Nobis culpa eum quam, ipsam iusto vel dicta nam repellendus iure earum saepe illo eos aut porro molestias ipsa ad tenetur ratione accusamus, tempora cum distinctio cupiditate. Itaque, eveniet odio.
             </div>
-            <div style="position: relative;" :style="{paddingBottom: `${bBtnHeight}px`}">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid perferendis, a rem facere aperiam placeat praesentium sequi consectetur in quis iste voluptate quo at non sapiente nemo alias repudiandae amet?
+            <div :style="{paddingBottom: `${bBtnHeight}px`}">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid perferendis, a rem facere aperiam placeat praesentium sequi consectetur in quis iste voluptate quo at non sapiente nemo alias repudiandae amet?
             Eveniet dignissimos veritatis tempore ut dolore repudiandae, illo numquam earum autem illum distinctio, ipsam delectus quo accusamus libero sunt unde aliquam consequatur dolorem? Perferendis nam voluptate, consequuntur corrupti doloribus enim.
             Sed, quidem unde tempore ut suscipit repudiandae nisi dolores rerum maxime totam culpa. Eius tempora quas eum temporibus fuga! Voluptatum obcaecati aspernatur asperiores nemo officia dignissimos delectus cum unde tempore.
             Nobis ipsum molestias asperiores magni et dicta saepe, quidem eos enim aspernatur consequatur aliquid officia exercitationem corporis modi odio fugiat a iste sapiente deleniti! Consequatur neque dolor incidunt suscipit perspiciatis.
